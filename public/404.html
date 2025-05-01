@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面未找到 | RWS 塔罗牌解说</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .error-image {
+      width: 200px;
+      height: 340px;
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+    }
+    
+    .error-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .error-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #6447b5;
+    }
+    
+    .error-message {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    .error-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .error-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background-color: #6447b5;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .error-link:hover {
+      background-color: #523696;
+      transform: translateY(-2px);
+    }
+    
+    .tarot-suggestion {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f9f7ff;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    
+    .tarot-suggestion h3 {
+      color: #6447b5;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    
+    .tarot-suggestion p {
+      margin-bottom: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      .error-title {
+        font-size: 2rem;
+      }
+      
+      .error-image {
+        width: 150px;
+        height: 255px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <div class="error-container">
+        <div class="error-image">
+          <img src="/images/tarot/optimized/16_The_Tower.jpg" alt="塔牌 - 404错误">
+        </div>
+        
+        <h1 class="error-title">404 - 页面未找到</h1>
+        
+        <p class="error-message">
+          看起来您正在寻找的页面已经迷失在了塔罗世界的迷雾中。
+          就像塔牌所暗示的那样，有时候意外的变化会引领我们走向新的发现。
+        </p>
+        
+        <div class="error-links">
+          <a href="/" class="error-link">
+            <i class="fas fa-home"></i> 返回首页
+          </a>
+          <a href="/cards-list.html" class="error-link">
+            <i class="fas fa-th"></i> 浏览塔罗牌
+          </a>
+          <a href="/readings.html" class="error-link">
+            <i class="fas fa-hand-sparkles"></i> 体验塔罗牌阵
+          </a>
+        </div>
+        
+        <div class="tarot-suggestion">
+          <h3>塔罗牌的指引</h3>
+          <p>
+            塔牌（The Tower）代表着突如其来的变化和启示。虽然它经常被视为具有挑战性的牌，
+            但它也象征着清除旧有结构以便新事物得以成长的机会。
+          </p>
+          <p>
+            就像您遇到这个404页面一样，有时意外的路径会引领我们发现新的可能性。
+            我们邀请您探索我们网站上的其他内容，也许您会找到比原本寻找的更有价值的信息。
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </div>
+      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+  </div>
+</body>
+</html> 

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塔罗牌完整列表 | RWS 塔罗牌解说</title>
+  <meta name="description" content="探索所有78张Rider-Waite-Smith塔罗牌，包括大阿卡那和小阿卡那。每张牌都配有详细解读和精美图片。">
+  <link rel="canonical" href="/cards-list.html">
+  <meta property="og:title" content="塔罗牌完整列表 | RWS 塔罗牌解说">
+  <meta property="og:description" content="探索所有78张Rider-Waite-Smith塔罗牌，包括大阿卡那和小阿卡那。每张牌都配有详细解读和精美图片。">
+  <meta property="og:url" content="/cards-list.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .arcana-intro {
+      margin-bottom: 25px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    
+    .arcana-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 15px;
+    }
+    
+    .arcana-header i {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+    }
+    
+    .arcana-section {
+      position: relative;
+      padding: 25px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(233, 216, 253, 0.3);
+    }
+    
+    .arcana-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+    
+    .cards-list h1 {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(233, 216, 253, 0.5);
+      text-align: center;
+      position: relative;
+    }
+    
+    .cards-list h1:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+    
+    .cards-list-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: var(--text-color);
+      background-color: rgba(247, 242, 255, 0.7);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(233, 216, 253, 0.3);
+    }
+    
+    /* Card grid layout styling */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .cards-grid ul {
+      display: contents; /* This makes the ul not interfere with the grid layout */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .cards-grid li {
+      transition: transform 0.3s ease;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .cards-grid li:hover {
+      transform: translateY(-8px);
+    }
+    
+    .card-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: var(--text-color);
+      background-color: white;
+      border-radius: var(--card-border-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+    }
+    
+    .card-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-thumbnail {
+      height: 260px;
+      overflow: hidden;
+      border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+      position: relative;
+    }
+    
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card-link:hover img {
+      transform: scale(1.08);
+    }
+    
+    .cards-grid h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      line-height: 1.4;
+      padding: 12px 10px;
+      margin: 0;
+      background: white;
+      border-top: 1px solid rgba(233, 216, 253, 0.5);
+      text-align: center;
+      flex-grow: 1;
+    }
+    
+    .suit-icon {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      margin-right: 10px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 20px;
+      }
+      
+      .card-thumbnail {
+        height: 220px;
+      }
+      
+      .cards-grid h3 {
+        font-size: 1rem;
+        padding: 10px 8px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .card-thumbnail {
+        height: 180px;
+      }
+      
+      .card-english-name {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html" class="active">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main class="cards-list">
+      <h1>塔罗牌完整列表</h1>
+      
+      <div class="cards-list-intro">
+        <p>
+          塔罗牌是一种神秘而古老的智慧工具，由78张牌组成，分为大阿卡那(22张)和小阿卡那(56张)。
+          每张牌都蕴含着丰富的象征意义和深刻的人生智慧，通过图像、数字和符号展现出宇宙和人类经验的各个方面。
+          在这里，您可以探索完整的Rider-Waite-Smith塔罗牌，了解每张牌的独特意义和象征。
+        </p>
+      </div>
+      
+      <div class="arcana-section">
+        <div class="arcana-header">
+          <i class="fas fa-sun"></i>
+          <h2>大阿卡那 (Major Arcana)</h2>
+        </div>
+        <p class="arcana-intro">
+          大阿卡那牌共22张，从0号的愚者到21号的世界，代表人生旅程中的重大主题和转折点。这些牌描绘了灵魂从无知(愚者)到觉醒(世界)的旅程，象征着个人成长和精神发展的关键阶段。大阿卡那往往预示着生活中的重大事件、深刻的内在转变和关键的人生课题。
+        </p>
+        <div class="cards-grid">
+          <ul id="major-arcana-list">
+            <!-- 大阿卡那列表将通过JS动态加载 -->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="arcana-section">
+        <div class="arcana-header">
+          <i class="fas fa-fire"></i>
+          <h2>小阿卡那 - 权杖 (Wands)</h2>
+        </div>
+        <p class="arcana-intro">
+          权杖牌对应元素火，代表创造力、热情、行动和精神能量。这一组牌探讨的是灵感、成长、冒险和个人追求的主题。权杖与职业抱负、创意项目、个人动力和生活热情密切相关，帮助我们了解如何将内在的火焰转化为有意义的行动。
+        </p>
+        <div class="cards-grid">
+          <ul id="wands-list">
+            <!-- 权杖牌列表将通过JS动态加载 -->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="arcana-section">
+        <div class="arcana-header">
+          <i class="fas fa-water"></i>
+          <h2>小阿卡那 - 圣杯 (Cups)</h2>
+        </div>
+        <p class="arcana-intro">
+          圣杯牌对应元素水，代表情感、关系、爱和直觉。这一组牌探讨的是情感体验、人际关系、创造性想象和心灵世界的主题。圣杯与爱情、友谊、家庭关系和情感满足密切相关，帮助我们了解自己的感受和与他人的情感连结。
+        </p>
+        <div class="cards-grid">
+          <ul id="cups-list">
+            <!-- 圣杯牌列表将通过JS动态加载 -->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="arcana-section">
+        <div class="arcana-header">
+          <i class="fas fa-wind"></i>
+          <h2>小阿卡那 - 宝剑 (Swords)</h2>
+        </div>
+        <p class="arcana-intro">
+          宝剑牌对应元素风，代表思想、挑战、冲突和沟通。这一组牌探讨的是智力活动、决策过程、内在斗争和真相追求的主题。宝剑与理性思维、清晰判断、困境突破和智慧获取密切相关，帮助我们面对生活中的挑战和困难。
+        </p>
+        <div class="cards-grid">
+          <ul id="swords-list">
+            <!-- 宝剑牌列表将通过JS动态加载 -->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="arcana-section">
+        <div class="arcana-header">
+          <i class="fas fa-mountain"></i>
+          <h2>小阿卡那 - 星币 (Pentacles)</h2>
+        </div>
+        <p class="arcana-intro">
+          星币牌对应元素土，代表物质世界、财富、身体和实际事务。这一组牌探讨的是资源管理、实际成就、物质安全和身体健康的主题。星币与职业发展、财务状况、健康管理和现实目标实现密切相关，帮助我们在物质世界中建立稳固的基础。
+        </p>
+        <div class="cards-grid">
+          <ul id="pentacles-list">
+            <!-- 星币牌列表将通过JS动态加载 -->
+          </ul>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </div>
+      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const majorArcanaList = document.getElementById('major-arcana-list');
+      const wandsList = document.getElementById('wands-list');
+      const cupsList = document.getElementById('cups-list');
+      const swordsList = document.getElementById('swords-list');
+      const pentaclesList = document.getElementById('pentacles-list');
+      
+      // 获取塔罗牌数据
+      fetch('/api/cards')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(cards => {
+          // 创建URL友好的slug
+          function createSlug(name) {
+            return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+          }
+          
+          // 生成卡牌HTML
+          function createCardItem(card) {
+            const cardSlug = createSlug(card.english_name);
+            return `
+              <li>
+                <a href="/cards/${cardSlug}" class="card-link">
+                  <div class="card-thumbnail">
+                    <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name}" loading="lazy">
+                  </div>
+                  <h3>${card.name}<span class="card-english-name">${card.english_name}</span></h3>
+                </a>
+              </li>
+            `;
+          }
+          
+          // 分类并展示卡牌
+          cards.forEach(card => {
+            const cardHTML = createCardItem(card);
+            
+            if (card.arcana === "大阿卡那") {
+              majorArcanaList.innerHTML += cardHTML;
+            } else if (card.suit === "权杖") {
+              wandsList.innerHTML += cardHTML;
+            } else if (card.suit === "圣杯") {
+              cupsList.innerHTML += cardHTML;
+            } else if (card.suit === "宝剑") {
+              swordsList.innerHTML += cardHTML;
+            } else if (card.suit === "星币") {
+              pentaclesList.innerHTML += cardHTML;
+            }
+          });
+          
+          // 添加滚动时的视觉效果
+          const sections = document.querySelectorAll('.arcana-section');
+          
+          const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+          };
+          
+          const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+              }
+            });
+          }, observerOptions);
+          
+          sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching cards:', error);
+          
+          // 如果API请求失败，使用静态数据
+          loadStaticCardData();
+        });
+      
+      // 加载静态卡牌数据作为备用
+      function loadStaticCardData() {
+        // 大阿卡那牌
+        const majorArcanaCards = [
+          { id: 0, name: "愚者", english_name: "The Fool", image_filename: "00_The_Fool.jpg" },
+          { id: 1, name: "魔术师", english_name: "The Magician", image_filename: "01_The_Magician.jpg" },
+          { id: 2, name: "女祭司", english_name: "The High Priestess", image_filename: "02_The_High_Priestess.jpg" },
+          { id: 3, name: "女皇", english_name: "The Empress", image_filename: "03_The_Empress.jpg" },
+          { id: 4, name: "皇帝", english_name: "The Emperor", image_filename: "04_The_Emperor.jpg" },
+          { id: 5, name: "教皇", english_name: "The Hierophant", image_filename: "05_The_Hierophant.jpg" },
+          { id: 6, name: "恋人", english_name: "The Lovers", image_filename: "06_The_Lovers.jpg" },
+          { id: 7, name: "战车", english_name: "The Chariot", image_filename: "07_The_Chariot.jpg" },
+          { id: 8, name: "力量", english_name: "Strength", image_filename: "08_Strength.jpg" },
+          { id: 9, name: "隐士", english_name: "The Hermit", image_filename: "09_The_Hermit.jpg" },
+          { id: 10, name: "命运之轮", english_name: "Wheel of Fortune", image_filename: "10_Wheel_of_Fortune.jpg" },
+          { id: 11, name: "正义", english_name: "Justice", image_filename: "11_Justice.jpg" },
+          { id: 12, name: "倒吊人", english_name: "The Hanged Man", image_filename: "12_The_Hanged_Man.jpg" },
+          { id: 13, name: "死神", english_name: "Death", image_filename: "13_Death.jpg" },
+          { id: 14, name: "节制", english_name: "Temperance", image_filename: "14_Temperance.jpg" },
+          { id: 15, name: "恶魔", english_name: "The Devil", image_filename: "15_The_Devil.jpg" },
+          { id: 16, name: "塔", english_name: "The Tower", image_filename: "16_The_Tower.jpg" },
+          { id: 17, name: "星星", english_name: "The Star", image_filename: "17_The_Star.jpg" },
+          { id: 18, name: "月亮", english_name: "The Moon", image_filename: "18_The_Moon.jpg" },
+          { id: 19, name: "太阳", english_name: "The Sun", image_filename: "19_The_Sun.jpg" },
+          { id: 20, name: "审判", english_name: "Judgement", image_filename: "20_Judgement.jpg" },
+          { id: 21, name: "世界", english_name: "The World", image_filename: "21_The_World.jpg" }
+        ];
+        
+        // 显示静态数据
+        function createCardItem(card) {
+          const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+          return `
+            <li>
+              <a href="/cards/${cardSlug}" class="card-link">
+                <div class="card-thumbnail">
+                  <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name}" loading="lazy">
+                </div>
+                <h3>${card.name}<span class="card-english-name">${card.english_name}</span></h3>
+              </a>
+            </li>
+          `;
+        }
+        
+        // 将大阿卡那牌添加到列表
+        majorArcanaCards.forEach(card => {
+          majorArcanaList.innerHTML += createCardItem(card);
+        });
+        
+        // 显示错误消息
+        const errorMessages = document.querySelectorAll('.arcana-section');
+        errorMessages.forEach((section, index) => {
+          if (index > 0) { // 保留大阿卡那部分
+            const errorElement = document.createElement('p');
+            errorElement.className = 'error-message';
+            errorElement.innerHTML = '<i class="fas fa-exclamation-circle"></i> 加载卡牌数据失败，请稍后再试。';
+            errorElement.style.textAlign = 'center';
+            errorElement.style.padding = '20px';
+            errorElement.style.color = '#d9534f';
+            errorElement.style.backgroundColor = '#fff';
+            errorElement.style.borderRadius = '8px';
+            errorElement.style.marginTop = '20px';
+            
+            // 清空列表并添加错误消息
+            const listElement = section.querySelector('ul');
+            if (listElement) {
+              listElement.innerHTML = '';
+              section.appendChild(errorElement);
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

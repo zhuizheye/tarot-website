@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塔罗牌详解 | RWS 塔罗牌解说</title>
+  <meta name="description" content="探索这张塔罗牌的详细解读，包括其象征意义、正逆位解释及在感情、事业、学业方面的指引。">
+  <link rel="canonical" href="">
+  <meta property="og:title" content="塔罗牌详解 | RWS 塔罗牌解说">
+  <meta property="og:description" content="探索这张塔罗牌的详细解读，包括其象征意义、正逆位解释及在感情、事业、学业方面的指引。">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html" class="active">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <article class="card-detail" id="card-container">
+        <div class="loading-container" style="text-align: center; padding: 50px 0;">
+          <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: #6447b5;"></i>
+          <p>正在加载卡牌信息...</p>
+        </div>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </div>
+      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get card slug from URL
+      const pathParts = window.location.pathname.split('/');
+      const cardSlug = pathParts[pathParts.length - 1];
+      
+      // Fetch card data
+      fetch(`/api/cards/${cardSlug}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Card not found');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (!data.success) {
+            throw new Error(data.error || 'Failed to load card data');
+          }
+          
+          // Render card data
+          renderCardPage(data.card, data.interpretations);
+          
+          // Update meta tags
+          updateMetaTags(data.card);
+          
+          // Fetch related cards
+          return fetch(`/api/related_cards/${data.card.id}`);
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            renderRelatedCards(data.relatedCards);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('card-container').innerHTML = `
+            <div style="text-align: center; padding: 50px 0;">
+              <h2>卡牌未找到</h2>
+              <p>抱歉，我们无法找到您请求的塔罗牌。</p>
+              <a href="/cards-list.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #6447b5; color: white; text-decoration: none; border-radius: 5px;">
+                查看所有塔罗牌
+              </a>
+            </div>
+          `;
+        });
+    });
+    
+    function renderCardPage(card, interpretations) {
+      const cardContainer = document.getElementById('card-container');
+      
+      // Determine element associations based on card properties
+      let element = '';
+      let astrology = '';
+      let numerology = '';
+      
+      if (card.arcana === "大阿卡那") {
+        // For major arcana, set specific associations
+        switch(card.rank) {
+          case 0: // The Fool
+            element = '风';
+            astrology = '天王星';
+            numerology = '0 - 无限可能、空无、潜能';
+            break;
+          case 1: // The Magician
+            element = '风';
+            astrology = '水星';
+            numerology = '1 - 创造、开始、独立';
+            break;
+          // Add other major arcana associations as needed
+          default:
+            element = '未知';
+            astrology = '未知';
+            numerology = `${card.rank} - 未知含义`;
+        }
+      } else {
+        // For minor arcana, set based on suit
+        switch(card.suit) {
+          case '权杖':
+            element = '火';
+            break;
+          case '圣杯':
+            element = '水';
+            break;
+          case '宝剑':
+            element = '风';
+            break;
+          case '星币':
+            element = '土';
+            break;
+          default:
+            element = '未知';
+        }
+        
+        // Set numerology based on rank
+        if (card.rank === 1) {
+          numerology = '1 - 新的开始、潜力、种子';
+        } else if (card.rank >= 2 && card.rank <= 10) {
+          numerology = `${card.rank} - 与数字${card.rank}相关的能量`;
+        } else {
+          // Court cards
+          numerology = '不适用';
+        }
+      }
+      
+      cardContainer.innerHTML = `
+        <header class="card-header">
+          <h1>${card.name} (${card.english_name})</h1>
+          <div class="card-meta">${card.arcana} | 编号: ${card.rank}</div>
+        </header>
+        
+        <div class="card-showcase">
+          <div class="card-image">
+            <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name} (${card.english_name})">
+          </div>
+          
+          <div class="card-basic-info">
+            <h2>基本资料</h2>
+            <ul>
+              <li><strong>中文名称:</strong> ${card.name}</li>
+              <li><strong>英文名称:</strong> ${card.english_name}</li>
+              <li><strong>编号:</strong> ${card.rank}</li>
+              <li><strong>分类:</strong> ${card.arcana}</li>
+              ${card.suit ? `<li><strong>花色:</strong> ${card.suit}</li>` : ''}
+              <li><strong>元素:</strong> ${element}</li>
+              <li><strong>星相:</strong> ${astrology}</li>
+              <li><strong>数字学意义:</strong> ${numerology}</li>
+            </ul>
+          </div>
+        </div>
+        
+        <section class="interpretation-section">
+          <h2>牌面解读</h2>
+          
+          <div class="interpretation-tabs">
+            <div class="tab-header">
+              <h3>正位解读</h3>
+            </div>
+            <div class="interpretation-content">
+              ${renderInterpretation(interpretations.upright)}
+            </div>
+            
+            <div class="tab-header">
+              <h3>逆位解读</h3>
+            </div>
+            <div class="interpretation-content">
+              ${renderInterpretation(interpretations.reversed)}
+            </div>
+          </div>
+        </section>
+        
+        <section class="related-cards">
+          <h2>相关塔罗牌</h2>
+          <ul class="cards-grid" id="related-cards-container">
+            <li>
+              <div style="text-align: center; padding: 20px;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #6447b5;"></i>
+                <p>加载相关卡牌...</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      `;
+    }
+    
+    function renderInterpretation(interpretation) {
+      return `
+        <div class="interpretation-item">
+          <h4>故事背景</h4>
+          <p>${interpretation.story_background}</p>
+        </div>
+        
+        <div class="interpretation-item">
+          <h4>象征意义</h4>
+          <p>${interpretation.symbolism}</p>
+        </div>
+        
+        <div class="interpretation-item">
+          <h4>感情解读</h4>
+          <p>${interpretation.love}</p>
+        </div>
+        
+        <div class="interpretation-item">
+          <h4>事业解读</h4>
+          <p>${interpretation.career}</p>
+        </div>
+        
+        <div class="interpretation-item">
+          <h4>学业解读</h4>
+          <p>${interpretation.study}</p>
+        </div>
+        
+        <div class="interpretation-item">
+          <h4>整体概括</h4>
+          <p>${interpretation.overall}</p>
+        </div>
+      `;
+    }
+    
+    function renderRelatedCards(relatedCards) {
+      const container = document.getElementById('related-cards-container');
+      
+      if (!relatedCards || relatedCards.length === 0) {
+        container.innerHTML = '<p>没有找到相关卡牌</p>';
+        return;
+      }
+      
+      let html = '';
+      
+      relatedCards.forEach(card => {
+        const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+        
+        html += `
+          <li>
+            <div class="card-thumbnail">
+              <a href="/cards/${cardSlug}">
+                <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name}">
+                <h3>${card.name}<span class="card-english-name">${card.english_name}</span></h3>
+              </a>
+            </div>
+          </li>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+    
+    function updateMetaTags(card) {
+      // Update page title
+      document.title = `${card.name} (${card.english_name}) 塔罗牌详解 | RWS 塔罗牌解说`;
+      
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.content = `${card.name}是${card.arcana}牌组中的一张，象征着[特性]。探索${card.name}牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。`;
+      }
+      
+      // Update canonical link
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+        canonical.href = `/cards/${cardSlug}`;
+      }
+      
+      // Update OpenGraph tags
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.content = `${card.name} (${card.english_name}) 塔罗牌详解 | RWS 塔罗牌解说`;
+      }
+      
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogDescription) {
+        ogDescription.content = `${card.name}是${card.arcana}牌组中的一张，象征着[特性]。探索${card.name}牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。`;
+      }
+      
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) {
+        const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+        ogUrl.content = `/cards/${cardSlug}`;
+      }
+      
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage) {
+        ogImage.content = `/images/tarot/optimized/${card.image_filename}`;
+      }
+    }
+  </script>
+</body>
+</html> 

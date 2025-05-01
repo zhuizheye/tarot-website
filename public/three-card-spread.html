@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三张牌阵解读 | RWS 塔罗牌解说</title>
+  <meta name="description" content="通过三张牌阵获取更全面的塔罗指引，了解过去、现在和未来，或问题的原因、现状和建议。">
+  <link rel="canonical" href="/three-card-spread.html">
+  <meta property="og:title" content="三张牌阵解读 | RWS 塔罗牌解说">
+  <meta property="og:description" content="通过三张牌阵获取更全面的塔罗指引，了解过去、现在和未来，或问题的原因、现状和建议。">
+  <meta property="og:url" content="/three-card-spread.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .spread-section {
+      padding: 40px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .spread-section h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+    
+    .spread-intro {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    
+    .spread-type-selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    
+    .spread-type-btn {
+      background-color: #f5f0ff;
+      border: 2px solid #6447b5;
+      color: #6447b5;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .spread-type-btn.active {
+      background-color: #6447b5;
+      color: white;
+    }
+    
+    .spread-type-btn:hover {
+      background-color: #e5dcf5;
+    }
+    
+    .spread-type-btn.active:hover {
+      background-color: #523696;
+    }
+    
+    .cards-area {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 50px 0;
+    }
+    
+    .card-position {
+      width: 200px;
+      height: 340px;
+      background-color: #f5f0ff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .card-position:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-position-label {
+      position: absolute;
+      top: -30px;
+      font-weight: 600;
+      color: #6447b5;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .card-back {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #6447b5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .card-design {
+      width: 90%;
+      height: 90%;
+      border: 2px solid gold;
+      border-radius: 5px;
+      background-color: #5a3ea3;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-design::before {
+      content: "✦";
+      font-size: 100px;
+      color: rgba(255, 215, 0, 0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .drawn-card {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+      position: relative;
+    }
+    
+    .drawn-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .reversed img {
+      transform: rotate(180deg);
+    }
+    
+    .control-area {
+      text-align: center;
+      margin: 20px 0 40px;
+    }
+    
+    .draw-button {
+      background-color: #6447b5;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(100, 71, 181, 0.4);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .draw-button:hover {
+      background-color: #523696;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(100, 71, 181, 0.5);
+    }
+    
+    .draw-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(100, 71, 181, 0.4);
+    }
+    
+    .draw-button i {
+      font-size: 1.4rem;
+    }
+    
+    .cards-interpretation {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+    
+    .interpretation-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #6447b5;
+      font-size: 1.8rem;
+    }
+    
+    .card-readings {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .card-reading {
+      padding: 20px;
+      background-color: #f9f7ff;
+      border-radius: 8px;
+      border-left: 4px solid #6447b5;
+    }
+    
+    .card-reading h3 {
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .card-reading h3 span {
+      color: #6447b5;
+      font-style: italic;
+    }
+    
+    .card-reading p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    
+    .card-reading .card-orientation {
+      font-weight: 600;
+      color: #6447b5;
+      margin-bottom: 15px;
+    }
+    
+    .spread-meaning {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .spread-meaning h3 {
+      color: #6447b5;
+      margin-bottom: 15px;
+    }
+    
+    .spread-meaning p {
+      line-height: 1.6;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .spread-section h1 {
+        font-size: 2rem;
+      }
+      
+      .cards-area {
+        gap: 50px 10px;
+      }
+      
+      .card-position {
+        width: 150px;
+        height: 255px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .spread-type-selector {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .cards-area {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .card-position {
+        width: 200px;
+        height: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="spread-section">
+        <h1>三张牌阵解读</h1>
+        
+        <p class="spread-intro">
+          三张牌阵是一种简单而强大的塔罗牌阵，可以帮助您获得对特定问题或情况的深入洞察。
+          在抽牌前，请静心思考您想要解答的问题。您可以选择不同类型的三张牌阵，以获取不同角度的指引。
+        </p>
+        
+        <div class="spread-type-selector">
+          <button class="spread-type-btn active" data-spread="past-present-future">过去-现在-未来</button>
+          <button class="spread-type-btn" data-spread="situation-action-outcome">情况-行动-结果</button>
+          <button class="spread-type-btn" data-spread="mind-body-spirit">思想-身体-精神</button>
+        </div>
+        
+        <div class="cards-area">
+          <div class="card-position" id="position-1">
+            <div class="card-position-label" id="label-1">过去</div>
+            <div class="card-back">
+              <div class="card-design"></div>
+            </div>
+            <div class="drawn-card" id="drawn-card-1"></div>
+          </div>
+          
+          <div class="card-position" id="position-2">
+            <div class="card-position-label" id="label-2">现在</div>
+            <div class="card-back">
+              <div class="card-design"></div>
+            </div>
+            <div class="drawn-card" id="drawn-card-2"></div>
+          </div>
+          
+          <div class="card-position" id="position-3">
+            <div class="card-position-label" id="label-3">未来</div>
+            <div class="card-back">
+              <div class="card-design"></div>
+            </div>
+            <div class="drawn-card" id="drawn-card-3"></div>
+          </div>
+        </div>
+        
+        <div class="control-area">
+          <button id="draw-button" class="draw-button">
+            <i class="fas fa-hand-sparkles"></i> 抽取三张牌
+          </button>
+        </div>
+        
+        <div class="cards-interpretation" id="interpretation-area">
+          <h2 class="interpretation-title">您的三张牌阵解读</h2>
+          
+          <div class="card-readings">
+            <div class="card-reading">
+              <h3 id="card-1-position">过去: <span id="card-1-name"></span></h3>
+              <p class="card-orientation" id="card-1-orientation"></p>
+              <p id="card-1-meaning"></p>
+            </div>
+            
+            <div class="card-reading">
+              <h3 id="card-2-position">现在: <span id="card-2-name"></span></h3>
+              <p class="card-orientation" id="card-2-orientation"></p>
+              <p id="card-2-meaning"></p>
+            </div>
+            
+            <div class="card-reading">
+              <h3 id="card-3-position">未来: <span id="card-3-name"></span></h3>
+              <p class="card-orientation" id="card-3-orientation"></p>
+              <p id="card-3-meaning"></p>
+            </div>
+          </div>
+          
+          <div class="spread-meaning">
+            <h3>牌阵整体解读</h3>
+            <p id="spread-overall-meaning">
+              这个三张牌阵展示了一个时间线或事件的进展。第一张牌代表过去的影响或导致当前状况的因素，第二张牌反映当前的情况或您面临的挑战，第三张牌则指向潜在的未来发展或可能的结果。请记住，未来并非命中注定，而是基于当前的能量和行动的可能方向。通过理解过去和现在，您可以更好地影响和塑造自己的未来。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </div>
+      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const spreadTypeButtons = document.querySelectorAll('.spread-type-btn');
+      const positionLabels = [
+        document.getElementById('label-1'),
+        document.getElementById('label-2'),
+        document.getElementById('label-3')
+      ];
+      const drawButton = document.getElementById('draw-button');
+      const cardPositions = document.querySelectorAll('.card-position');
+      const drawnCards = [
+        document.getElementById('drawn-card-1'),
+        document.getElementById('drawn-card-2'),
+        document.getElementById('drawn-card-3')
+      ];
+      const interpretationArea = document.getElementById('interpretation-area');
+      const spreadOverallMeaning = document.getElementById('spread-overall-meaning');
+      
+      // Card position data for different spreads
+      const spreadTypes = {
+        'past-present-future': {
+          labels: ['过去', '现在', '未来'],
+          descriptions: [
+            '代表过去的影响或导致当前状况的因素。',
+            '反映当前的情况或您面临的挑战。',
+            '指向潜在的未来发展或可能的结果。'
+          ],
+          overall: '这个三张牌阵展示了一个时间线或事件的进展。第一张牌代表过去的影响或导致当前状况的因素，第二张牌反映当前的情况或您面临的挑战，第三张牌则指向潜在的未来发展或可能的结果。请记住，未来并非命中注定，而是基于当前的能量和行动的可能方向。通过理解过去和现在，您可以更好地影响和塑造自己的未来。'
+        },
+        'situation-action-outcome': {
+          labels: ['情况', '行动', '结果'],
+          descriptions: [
+            '描述当前情况或您面临的问题的本质。',
+            '建议您可以采取的行动或方法来应对情况。',
+            '如果按照建议行动，可能会出现的结果或方向。'
+          ],
+          overall: '这个三张牌阵关注解决问题的过程。第一张牌揭示当前情况或问题的本质，第二张牌提供可能的解决方案或应对策略，第三张牌展示如果按照建议行动可能达成的结果。这个牌阵特别适合寻求具体问题的实际建议和可能结果。'
+        },
+        'mind-body-spirit': {
+          labels: ['思想', '身体', '精神'],
+          descriptions: [
+            '反映您当前的思想状态、信念和心理因素。',
+            '代表物质现实、健康和日常生活方面的情况。',
+            '揭示您的精神旅程、更高目标和心灵方面的需求。'
+          ],
+          overall: '这个三张牌阵提供了您整体生活平衡的视角。第一张牌探索您的思想世界，包括观念、思维模式和心理状态；第二张牌关注物质和肉体层面，如健康、工作和日常习惯；第三张牌则深入您的精神维度，探讨灵性成长和内在目标。通过这三个方面的综合分析，可以帮助您发现生活中可能存在的不平衡，并找到恢复和谐的方式。'
+        }
+      };
+      
+      // Current spread type
+      let currentSpread = 'past-present-future';
+      
+      // Cards drawn state
+      let isDrawing = false;
+      let cardsDrawn = false;
+      
+      // Initialize GSAP timeline
+      const tl = gsap.timeline({ paused: true });
+      
+      // Update position labels based on spread type
+      function updateSpreadLabels(spreadType) {
+        const labels = spreadTypes[spreadType].labels;
+        positionLabels.forEach((label, index) => {
+          label.textContent = labels[index];
+        });
+        
+        // Update interpretation area if cards are already drawn
+        if (cardsDrawn) {
+          updateInterpretationLabels(spreadType);
+          spreadOverallMeaning.textContent = spreadTypes[spreadType].overall;
+        }
+      }
+      
+      // Update interpretation labels
+      function updateInterpretationLabels(spreadType) {
+        const labels = spreadTypes[spreadType].labels;
+        for (let i = 1; i <= 3; i++) {
+          document.getElementById(`card-${i}-position`).innerHTML = `${labels[i-1]}: <span id="card-${i}-name">${document.getElementById(`card-${i}-name`).textContent}</span>`;
+        }
+      }
+      
+      // Spread type button event listeners
+      spreadTypeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (isDrawing) return;
+          
+          // Remove active class from all buttons
+          spreadTypeButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          // Update spread type
+          currentSpread = button.getAttribute('data-spread');
+          
+          // Update labels
+          updateSpreadLabels(currentSpread);
+        });
+      });
+      
+      // Draw cards functionality
+      drawButton.addEventListener('click', drawCards);
+      
+      function drawCards() {
+        if (isDrawing || cardsDrawn) return;
+        isDrawing = true;
+        
+        // Reset view
+        drawnCards.forEach(card => {
+          card.innerHTML = '';
+          card.style.display = 'none';
+        });
+        interpretationArea.style.display = 'none';
+        
+        // Start animation
+        animateCardDrawing();
+        
+        // Call the API to get three random cards
+        setTimeout(() => {
+          displayDrawnCards();
+        }, 2000); // Match this with animation duration
+      }
+      
+      function animateCardDrawing() {
+        // Reset timeline
+        tl.clear();
+        
+        // Add animation for each card
+        cardPositions.forEach((position, index) => {
+          tl.to(position, {
+            y: -20,
+            rotation: index === 1 ? 0 : index === 0 ? -5 : 5,
+            duration: 0.3,
+            ease: 'power1.out',
+            delay: index * 0.2
+          })
+          .to(position, {
+            y: 0,
+            rotation: 0,
+            duration: 0.3,
+            ease: 'bounce.out'
+          });
+        });
+        
+        // Start the animation
+        tl.play();
+      }
+      
+      function displayDrawnCards() {
+        // Simulate API response for random cards
+        const mockCards = [
+          {
+            card: {
+              name: "愚者",
+              english_name: "The Fool",
+              image_filename: "00_The_Fool.jpg",
+              is_reversed: Math.random() > 0.5
+            },
+            meaning: "愚者代表新的开始、冒险和无限可能。在" + spreadTypes[currentSpread].labels[0] + "位置，它表明" + spreadTypes[currentSpread].descriptions[0] + " 这可能意味着您以前采取了一种无忧无虑、开放的态度，或者经历了一个新的开始。"
+          },
+          {
+            card: {
+              name: "魔术师",
+              english_name: "The Magician",
+              image_filename: "01_The_Magician.jpg",
+              is_reversed: Math.random() > 0.5
+            },
+            meaning: "魔术师象征着创造力、意志力和掌控自己命运的能力。在" + spreadTypes[currentSpread].labels[1] + "位置，它显示" + spreadTypes[currentSpread].descriptions[1] + " 这表明您现在拥有实现目标所需的所有工具和资源，关键是要有意识地运用它们。"
+          },
+          {
+            card: {
+              name: "星星",
+              english_name: "The Star",
+              image_filename: "17_The_Star.jpg",
+              is_reversed: Math.random() > 0.5
+            },
+            meaning: "星星带来希望、灵感和精神指引。在" + spreadTypes[currentSpread].labels[2] + "位置，它预示" + spreadTypes[currentSpread].descriptions[2] + " 这张牌鼓励您保持信心，相信宇宙会指引您走向光明的未来。"
+          }
+        ];
+        
+        // Display each card
+        mockCards.forEach((data, index) => {
+          const card = data.card;
+          
+          // Create image element for the card
+          const imgElement = document.createElement('img');
+          imgElement.src = `/images/tarot/optimized/${card.image_filename}`;
+          imgElement.alt = card.english_name;
+          
+          // Create drawn card element
+          const drawnCard = drawnCards[index];
+          drawnCard.innerHTML = '';
+          drawnCard.appendChild(imgElement);
+          
+          // Add reversed class if the card is reversed
+          if (card.is_reversed) {
+            drawnCard.classList.add('reversed');
+          } else {
+            drawnCard.classList.remove('reversed');
+          }
+          
+          // Show the drawn card
+          drawnCard.style.display = 'block';
+          cardPositions[index].querySelector('.card-back').style.display = 'none';
+          
+          // Update interpretation
+          document.getElementById(`card-${index+1}-name`).textContent = `${card.name} (${card.english_name})`;
+          document.getElementById(`card-${index+1}-orientation`).textContent = card.is_reversed ? '逆位' : '正位';
+          document.getElementById(`card-${index+1}-meaning`).textContent = data.meaning;
+        });
+        
+        // Set overall meaning
+        spreadOverallMeaning.textContent = spreadTypes[currentSpread].overall;
+        
+        // Show interpretation area with slight delay
+        setTimeout(() => {
+          interpretationArea.style.display = 'block';
+          interpretationArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Reset drawing state
+          isDrawing = false;
+          cardsDrawn = true;
+          
+          // Change draw button text
+          drawButton.innerHTML = '<i class="fas fa-sync-alt"></i> 重新抽牌';
+          
+          // Add event listener for redraw
+          drawButton.removeEventListener('click', drawCards);
+          drawButton.addEventListener('click', resetAndDraw);
+        }, 500);
+      }
+      
+      function resetAndDraw() {
+        // Reset card display
+        cardPositions.forEach(position => {
+          position.querySelector('.card-back').style.display = 'flex';
+          position.querySelector('.drawn-card').style.display = 'none';
+        });
+        
+        // Reset state
+        cardsDrawn = false;
+        
+        // Reset button
+        drawButton.innerHTML = '<i class="fas fa-hand-sparkles"></i> 抽取三张牌';
+        drawButton.removeEventListener('click', resetAndDraw);
+        drawButton.addEventListener('click', drawCards);
+        
+        // Hide interpretation
+        interpretationArea.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>愚者 (The Fool) 塔罗牌详解 | RWS 塔罗牌解说</title>
+  <meta name="description" content="愚者是塔罗牌中的第0号牌，象征着纯真、新的开始、冒险和潜力。探索愚者牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。">
+  <link rel="canonical" href="/cards/the-fool">
+  <meta property="og:title" content="愚者 (The Fool) 塔罗牌详解 | RWS 塔罗牌解说">
+  <meta property="og:description" content="愚者是塔罗牌中的第0号牌，象征着纯真、新的开始、冒险和潜力。探索愚者牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。">
+  <meta property="og:url" content="/cards/the-fool">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/images/tarot/optimized/00_The_Fool.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    .card-showcase {
+      position: relative;
+    }
+    
+    .card-detail {
+      position: relative;
+    }
+    
+    .card-detail:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+    
+    .card-header {
+      text-align: center;
+      padding-bottom: 25px;
+      position: relative;
+    }
+    
+    .card-header:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 1px;
+      background-color: var(--accent-color);
+    }
+    
+    .card-image {
+      position: relative;
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
+    
+    .card-image:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+    
+    .card-image:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 15px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 70%);
+      z-index: -1;
+      transition: all 0.5s ease;
+    }
+    
+    .card-image:hover:after {
+      width: 85%;
+      opacity: 0.6;
+    }
+    
+    .card-image img {
+      border: 6px solid white;
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    }
+    
+    .interpretation-tabs {
+      margin-top: 20px;
+    }
+    
+    .interpretation-item {
+      background-color: white;
+      padding: 25px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
+      border-left: 3px solid var(--primary-color);
+    }
+    
+    .interpretation-item:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+    
+    .tab-header {
+      display: flex;
+      align-items: center;
+    }
+    
+    .tab-header i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .tab-header.upright i {
+      color: var(--accent-color);
+    }
+    
+    .tab-header.reversed i {
+      color: var(--accent-color);
+      transform: rotate(180deg);
+    }
+    
+    .card-key-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 30px 0;
+      padding: 20px;
+      background-color: rgba(247, 242, 255, 0.5);
+      border-radius: 12px;
+      border: 1px solid rgba(233, 216, 253, 0.7);
+    }
+    
+    .key-info-item {
+      flex: 1 1 150px;
+      text-align: center;
+      padding: 15px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
+    
+    .key-info-item .label {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    
+    .key-info-item .value {
+      font-size: 1.1rem;
+    }
+    
+    .key-info-item i {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+    
+    .related-cards h2 {
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .related-cards h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+  </style>
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "/cards/the-fool"
+    },
+    "headline": "愚者 (The Fool) 塔罗牌详解",
+    "image": "/images/tarot/optimized/00_The_Fool.jpg",
+    "description": "愚者是塔罗牌中的第0号牌，象征着纯真、新的开始、冒险和潜力。探索愚者牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。",
+    "author": {
+      "@type": "Organization",
+      "name": "RWS 塔罗牌解说"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "RWS 塔罗牌解说",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png"
+      }
+    },
+    "datePublished": "2023-07-15T08:00:00+08:00",
+    "dateModified": "2023-09-30T10:30:00+08:00"
+  }
+  </script>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <article class="card-detail">
+        <header class="card-header">
+          <h1>愚者 (The Fool)</h1>
+          <div class="card-meta">大阿卡那 | 编号: 0</div>
+        </header>
+        
+        <div class="card-showcase">
+          <div class="card-image">
+            <img src="/images/tarot/optimized/00_The_Fool.jpg" alt="愚者 (The Fool)">
+          </div>
+          
+          <div class="card-key-info">
+            <div class="key-info-item">
+              <i class="fas fa-hashtag"></i>
+              <div class="label">编号</div>
+              <div class="value">0</div>
+            </div>
+            
+            <div class="key-info-item">
+              <i class="fas fa-star"></i>
+              <div class="label">分类</div>
+              <div class="value">大阿卡那</div>
+            </div>
+            
+            <div class="key-info-item">
+              <i class="fas fa-wind"></i>
+              <div class="label">元素</div>
+              <div class="value">风</div>
+            </div>
+            
+            <div class="key-info-item">
+              <i class="fas fa-globe"></i>
+              <div class="label">星相</div>
+              <div class="value">天王星</div>
+            </div>
+          </div>
+          
+          <div class="card-basic-info">
+            <h2>基本资料</h2>
+            <ul>
+              <li><strong>中文名称:</strong> 愚者</li>
+              <li><strong>英文名称:</strong> The Fool</li>
+              <li><strong>编号:</strong> 0</li>
+              <li><strong>分类:</strong> 大阿卡那</li>
+              <li><strong>元素:</strong> 风</li>
+              <li><strong>星相:</strong> 天王星</li>
+              <li><strong>数字学意义:</strong> 0 - 无限可能、空无、潜能</li>
+            </ul>
+          </div>
+        </div>
+        
+        <section class="interpretation-section">
+          <h2>牌面解读</h2>
+          
+          <div class="interpretation-tabs">
+            <div class="tab-header upright">
+              <i class="fas fa-sun"></i>
+              <h3>正位解读</h3>
+            </div>
+            <div class="interpretation-content">
+              <div class="interpretation-item">
+                <h4>故事背景</h4>
+                <p>愚者是塔罗牌中编号为0的牌，代表着旅程的开始。画面中展示了一位年轻人站在悬崖边缘，无忧无虑地朝前迈步，手持白玫瑰（纯洁的象征），身旁有一只小白狗。他携带少量行囊，头上仰望天空，仿佛对前方的冒险充满期待。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>象征意义</h4>
+                <p>愚者象征着纯真、自发性、勇气、冒险和新的开始。悬崖代表未知的挑战，小狗象征着忠诚和直觉，白玫瑰象征纯洁的信念。愚者的姿态表明他对未知世界的探索精神。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>感情解读</h4>
+                <p>在感情方面，愚者正位表示新的浪漫可能性、无条件的爱和对感情的乐观态度。可能是一段全新关系的开始，或是对现有关系注入新的活力。建议保持开放心态，愿意接受爱情中的冒险和惊喜。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>事业解读</h4>
+                <p>在职业方面，愚者正位预示着新的工作机会、职业转换或开创性的项目。暗示这是追求你真正热爱的职业道路的好时机。鼓励你跳出舒适区，尝试新的方向，相信自己的直觉和能力。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>学业解读</h4>
+                <p>在学业上，愚者正位代表学习新知识、尝试新学科的良好时机。表明你可能对某个领域产生强烈兴趣，并愿意投入精力学习。建议保持好奇心和探索精神，不要因为担心失败而止步不前。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>整体概括</h4>
+                <p>总体而言，愚者正位是一张充满希望和可能性的牌。它鼓励你敞开心扉，勇敢面对新的挑战，相信自己的直觉。现在是踏上新旅程的理想时机，即使前方有风险，但通过保持乐观和灵活的态度，你将获得宝贵的经验和成长。无论面对什么情况，保持那份初生牛犊不怕虎的勇气吧！</p>
+              </div>
+            </div>
+            
+            <div class="tab-header reversed">
+              <i class="fas fa-moon"></i>
+              <h3>逆位解读</h3>
+            </div>
+            <div class="interpretation-content">
+              <div class="interpretation-item">
+                <h4>故事背景</h4>
+                <p>愚者逆位时，画面中的年轻人可能被视为即将失足跌落悬崖，或过于犹豫而不敢前行。他可能忽略了小白狗的警告，或者行囊中的物品散落一地。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>象征意义</h4>
+                <p>愚者逆位象征着鲁莽、不负责任、优柔寡断和恐惧。悬崖此时代表真实的危险，而非冒险的机会；狗的吠叫成为被忽视的警告；行囊可能象征准备不足或资源浪费。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>感情解读</h4>
+                <p>在感情方面，愚者逆位可能表示关系中的鲁莽决定、缺乏承诺或过度犹豫不决。可能你害怕踏入新关系，或在现有关系中不愿承担责任。建议审视自己的恐惧来源，并思考是否过度保守或过度冒险。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>事业解读</h4>
+                <p>在职业方面，愚者逆位暗示职业决策不明智、机会错失或准备不足。可能是你对风险过度恐惧，或相反，做出了过于冲动的职业选择。建议在做出重大职业决定前进行充分准备和研究。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>学业解读</h4>
+                <p>在学业上，愚者逆位表示学习方向的混乱、注意力不集中或缺乏学习动力。可能你选择了不适合自己的学科，或因恐惧而不敢挑战自己。建议重新评估学习目标，并制定更现实的学习计划。</p>
+              </div>
+              
+              <div class="interpretation-item">
+                <h4>整体概括</h4>
+                <p>总体而言，愚者逆位提醒你需要在冒险和谨慎之间找到平衡。它警示你不要做出草率决定，同时也不要因恐惧而错失良机。现在可能是重新评估你的方向和决策的时候，确保你既不是盲目冲动，也不是过度保守。听取周围的建议，但最终仍需遵循内心的指引，找到属于自己的平衡点。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="related-cards">
+          <h2>相关塔罗牌</h2>
+          <ul class="cards-grid">
+            <li>
+              <div class="card-thumbnail">
+                <a href="/cards/the-magician">
+                  <img src="/images/tarot/optimized/01_The_Magician.jpg" alt="魔术师">
+                  <h3>魔术师<span class="card-english-name">The Magician</span></h3>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="card-thumbnail">
+                <a href="/cards/the-world">
+                  <img src="/images/tarot/optimized/21_The_World.jpg" alt="世界">
+                  <h3>世界<span class="card-english-name">The World</span></h3>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="card-thumbnail">
+                <a href="/cards/ace-of-wands">
+                  <img src="/images/tarot/optimized/35_Ace_of_Wands.jpg" alt="权杖王牌">
+                  <h3>权杖王牌<span class="card-english-name">Ace of Wands</span></h3>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="card-thumbnail">
+                <a href="/cards/the-star">
+                  <img src="/images/tarot/optimized/17_The_Star.jpg" alt="星星">
+                  <h3>星星<span class="card-english-name">The Star</span></h3>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/cards-list.html">塔罗牌列表</a></li>
+          <li><a href="/readings.html">牌阵解读</a></li>
+          <li><a href="/about.html">关于我们</a></li>
+        </ul>
+      </div>
+      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 为正逆位解读添加切换功能
+      const tabHeaders = document.querySelectorAll('.tab-header');
+      const interpretationContents = document.querySelectorAll('.interpretation-content');
+      
+      // 默认只显示正位解读
+      interpretationContents[1].style.display = 'none';
+      
+      tabHeaders.forEach((header, index) => {
+        header.addEventListener('click', () => {
+          // 隐藏所有内容
+          interpretationContents.forEach(content => {
+            content.style.display = 'none';
+          });
+          
+          // 显示当前点击的标签对应的内容
+          interpretationContents[index].style.display = 'block';
+          
+          // 添加动画效果
+          interpretationContents[index].style.animation = 'fadeIn 0.5s ease';
+        });
+      });
+      
+      // 添加滚动动画效果
+      const interpretationItems = document.querySelectorAll('.interpretation-item');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      interpretationItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(item);
+      });
+    });
+  </script>
+</body>
+</html> 
