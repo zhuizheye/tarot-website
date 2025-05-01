@@ -20,6 +20,7 @@
       margin-bottom: 25px;
       line-height: 1.8;
       font-size: 1.05rem;
+      color: var(--text-color);
     }
     
     .arcana-header {
@@ -27,27 +28,57 @@
       align-items: center;
       margin-bottom: 20px;
       gap: 15px;
+      border-bottom: 1px solid rgba(233, 216, 253, 0.5);
+      padding-bottom: 15px;
+      position: relative;
+    }
+    
+    .arcana-header:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 80px;
+      height: 2px;
+      background-color: var(--accent-color);
     }
     
     .arcana-header i {
       font-size: 1.8rem;
       color: var(--accent-color);
+      background-color: rgba(233, 216, 253, 0.2);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
     }
     
     .arcana-section {
       position: relative;
-      padding: 25px;
-      background-color: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: var(--border-radius);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      margin-bottom: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 50px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid rgba(233, 216, 253, 0.3);
     }
     
+    .arcana-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+    
     .arcana-section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     }
     
     .cards-list h1 {
@@ -56,6 +87,8 @@
       border-bottom: 1px solid rgba(233, 216, 253, 0.5);
       text-align: center;
       position: relative;
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      color: var(--primary-color);
     }
     
     .cards-list h1:after {
@@ -77,9 +110,9 @@
       font-size: 1.05rem;
       color: var(--text-color);
       background-color: rgba(247, 242, 255, 0.7);
-      padding: 20px;
+      padding: 25px;
       border-radius: var(--border-radius);
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       border: 1px solid rgba(233, 216, 253, 0.3);
     }
     
@@ -101,13 +134,13 @@
     }
     
     .cards-grid li {
-      transition: transform 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       margin: 0;
       padding: 0;
     }
     
     .cards-grid li:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
     }
     
     .card-link {
@@ -120,12 +153,30 @@
       border-radius: var(--card-border-radius);
       overflow: hidden;
       box-shadow: var(--card-shadow);
-      transition: var(--transition);
+      transition: box-shadow 0.4s ease;
+      border: 1px solid rgba(233, 216, 253, 0.3);
+      position: relative;
+    }
+    
+    .card-link:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+    
+    .card-link:hover:before {
+      opacity: 1;
     }
     
     .card-link:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 30px rgba(71, 43, 113, 0.15);
     }
     
     .card-thumbnail {
@@ -139,7 +190,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
+      vertical-align: middle;
     }
     
     .card-link:hover img {
@@ -150,12 +202,18 @@
       font-size: 1.1rem;
       color: var(--primary-color);
       line-height: 1.4;
-      padding: 12px 10px;
+      padding: 15px 10px;
       margin: 0;
       background: white;
       border-top: 1px solid rgba(233, 216, 253, 0.5);
       text-align: center;
       flex-grow: 1;
+      transition: padding 0.3s ease;
+    }
+    
+    .card-link:hover h3 {
+      padding-top: 18px;
+      padding-bottom: 18px;
     }
     
     .suit-icon {
@@ -171,6 +229,17 @@
     }
     
     /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 25px;
+      }
+      
+      .card-thumbnail {
+        height: 240px;
+      }
+    }
+    
     @media (max-width: 768px) {
       .cards-grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -184,6 +253,21 @@
       .cards-grid h3 {
         font-size: 1rem;
         padding: 10px 8px;
+      }
+      
+      .card-link:hover h3 {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      
+      .arcana-section {
+        padding: 20px;
+      }
+      
+      .arcana-header i {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
       }
     }
     
@@ -199,6 +283,10 @@
       
       .card-english-name {
         font-size: 0.8rem;
+      }
+      
+      .arcana-section {
+        padding: 15px;
       }
     }
   </style>
@@ -301,6 +389,10 @@
             <!-- 星币牌列表将通过JS动态加载 -->
           </ul>
         </div>
+      </div>
+      
+      <div style="text-align: center; margin: 40px 0;">
+        <a href="/readings.html" class="explore-all-button">探索不同牌阵解读 <i class="fas fa-chevron-right"></i></a>
       </div>
     </main>
     
