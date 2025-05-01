@@ -90,30 +90,35 @@ router.get('/related_cards/:cardId', (req, res) => {
     
     // Generate related cards based on various criteria
     const relatedCards = [];
-    
-    // 1. Same arcana
-    const sameArcanaCards = cards.filter(c => 
-      c.id !== cardId && c.arcana === targetCard.arcana
-    );
-    
-    // 2. Same suit (for minor arcana)
-    const sameSuitCards = cards.filter(c => 
-      c.id !== cardId && c.suit === targetCard.suit && c.suit !== null
-    );
-    
-    // 3. Complementary cards (based on card meanings/associations)
-    // This would ideally be based on a predefined mapping of complementary cards
-    // For simplicity, we'll use numerical relationships for now
-    const complementaryCards = cards.filter(c => {
-      if (targetCard.arcana === "大阿卡那" && c.arcana === "大阿卡那") {
-        // For major arcana, cards that sum to 21 are complementary
-        return c.id !== cardId && c.rank + targetCard.rank === 21;
-      }
-      return false;
-    });
-    
-    // Build a unique set of related cards
     const uniqueRelatedIds = new Set();
+    
+    // Priority 1: Complementary cards (based on card meanings/associations)
+    let complementaryCards = [];
+    
+    if (targetCard.arcana === "大阿卡那") {
+      // For major arcana, cards that sum to 21 are complementary (0+21, 1+20, etc.)
+      complementaryCards = cards.filter(c => {
+        if (c.id !== cardId && c.arcana === "大阿卡那") {
+          // The Fool (0) and The World (21) are complementary
+          if ((targetCard.rank === 0 && c.rank === 21) || (targetCard.rank === 21 && c.rank === 0)) {
+            return true;
+          }
+          // Other major arcana cards that sum to 21 are complementary
+          if (targetCard.rank > 0 && targetCard.rank < 21 && (c.rank + targetCard.rank === 21)) {
+            return true;
+          }
+        }
+        return false;
+      });
+    } else if (targetCard.suit) {
+      // For minor arcana, cards of same rank but different suit can be complementary
+      complementaryCards = cards.filter(c => 
+        c.id !== cardId && 
+        c.arcana === "小阿卡那" && 
+        c.rank === targetCard.rank && 
+        c.suit !== targetCard.suit
+      );
+    }
     
     // Add complementary cards first (they're most relevant)
     for (const card of complementaryCards) {
@@ -123,15 +128,47 @@ router.get('/related_cards/:cardId', (req, res) => {
       }
     }
     
-    // Add same suit cards next
-    for (const card of sameSuitCards) {
-      if (relatedCards.length < 4 && !uniqueRelatedIds.has(card.id)) {
-        relatedCards.push(card);
-        uniqueRelatedIds.add(card.id);
+    // Priority 2: Same suit (for minor arcana) or adjacent numbers (for major arcana)
+    if (targetCard.arcana === "大阿卡那") {
+      // For major arcana, adjacent numbers are related
+      const adjacentRanks = [targetCard.rank - 1, targetCard.rank + 1].filter(r => r >= 0 && r <= 21);
+      const adjacentCards = cards.filter(c => 
+        c.id !== cardId && 
+        c.arcana === "大阿卡那" && 
+        adjacentRanks.includes(c.rank)
+      );
+      
+      for (const card of adjacentCards) {
+        if (relatedCards.length < 4 && !uniqueRelatedIds.has(card.id)) {
+          relatedCards.push(card);
+          uniqueRelatedIds.add(card.id);
+        }
+      }
+    } else if (targetCard.suit) {
+      // For minor arcana, same suit cards are related (especially adjacent ranks)
+      const sameSuitCards = cards.filter(c => 
+        c.id !== cardId && 
+        c.suit === targetCard.suit
+      ).sort((a, b) => {
+        // Sort by how close they are to the target rank
+        const distA = Math.abs(a.rank - targetCard.rank);
+        const distB = Math.abs(b.rank - targetCard.rank);
+        return distA - distB;
+      });
+      
+      for (const card of sameSuitCards) {
+        if (relatedCards.length < 4 && !uniqueRelatedIds.has(card.id)) {
+          relatedCards.push(card);
+          uniqueRelatedIds.add(card.id);
+        }
       }
     }
     
-    // Add same arcana cards to fill remaining slots
+    // Priority 3: Same arcana (fill remaining slots)
+    const sameArcanaCards = cards.filter(c => 
+      c.id !== cardId && c.arcana === targetCard.arcana && !uniqueRelatedIds.has(c.id)
+    );
+    
     for (const card of sameArcanaCards) {
       if (relatedCards.length < 4 && !uniqueRelatedIds.has(card.id)) {
         relatedCards.push(card);
@@ -139,11 +176,11 @@ router.get('/related_cards/:cardId', (req, res) => {
       }
     }
     
-    // If we still don't have 4 related cards, add random cards
+    // If we still need more cards, add random ones
     if (relatedCards.length < 4) {
       const randomCards = cards.filter(c => 
         c.id !== cardId && !uniqueRelatedIds.has(c.id)
-      );
+      ).sort(() => 0.5 - Math.random());
       
       for (const card of randomCards) {
         if (relatedCards.length < 4) {
@@ -155,13 +192,13 @@ router.get('/related_cards/:cardId', (req, res) => {
       }
     }
     
-    res.json({
+    return res.json({
       success: true,
       relatedCards
     });
   } catch (error) {
-    console.error('Error handling get related cards request:', error);
-    res.status(500).json({
+    console.error('Error getting related cards:', error);
+    return res.status(500).json({
       success: false,
       error: 'Failed to get related cards'
     });

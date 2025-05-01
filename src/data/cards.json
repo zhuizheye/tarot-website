@@ -6,7 +6,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 0,
-    "image_filename": "00_The_Fool.jpg"
+    "image_filename": "00_The_Fool.jpg",
+    "element": "风",
+    "astrology": "天王星",
+    "numerology": "0 - 无限可能、空无、潜能"
   },
   {
     "id": 1,
@@ -15,7 +18,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 1,
-    "image_filename": "01_The_Magician.jpg"
+    "image_filename": "01_The_Magician.jpg",
+    "element": "风",
+    "astrology": "水星",
+    "numerology": "1 - 创造、开始、独立"
   },
   {
     "id": 2,
@@ -24,7 +30,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 2,
-    "image_filename": "02_The_High_Priestess.jpg"
+    "image_filename": "02_The_High_Priestess.jpg",
+    "element": "水",
+    "astrology": "月亮",
+    "numerology": "2 - 二元性、平衡、直觉、潜意识"
   },
   {
     "id": 3,
@@ -33,7 +42,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 3,
-    "image_filename": "03_The_Empress.jpg"
+    "image_filename": "03_The_Empress.jpg",
+    "element": "土",
+    "astrology": "金星",
+    "numerology": "3 - 创造力、表达、成长、丰饶"
   },
   {
     "id": 4,
@@ -42,7 +54,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 4,
-    "image_filename": "04_The_Emperor.jpg"
+    "image_filename": "04_The_Emperor.jpg",
+    "element": "火",
+    "astrology": "白羊座",
+    "numerology": "4 - 稳定、权威、结构、秩序"
   },
   {
     "id": 5,
@@ -51,7 +66,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 5,
-    "image_filename": "05_The_Hierophant.jpg"
+    "image_filename": "05_The_Hierophant.jpg",
+    "element": "土",
+    "astrology": "金牛座",
+    "numerology": "5 - 传统、教导、精神指引、信仰"
   },
   {
     "id": 6,
@@ -60,7 +78,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 6,
-    "image_filename": "06_The_Lovers.jpg"
+    "image_filename": "06_The_Lovers.jpg",
+    "element": "风",
+    "astrology": "双子座",
+    "numerology": "6 - 选择、和谐、爱、关系"
   },
   {
     "id": 7,
@@ -69,7 +90,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 7,
-    "image_filename": "07_The_Chariot.jpg"
+    "image_filename": "07_The_Chariot.jpg",
+    "element": "水",
+    "astrology": "巨蟹座",
+    "numerology": "7 - 胜利、意志力、控制、前进"
   },
   {
     "id": 8,
@@ -78,7 +102,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 8,
-    "image_filename": "08_Strength.jpg"
+    "image_filename": "08_Strength.jpg",
+    "element": "火",
+    "astrology": "狮子座",
+    "numerology": "8 - 内在力量、勇气、忍耐、韧性"
   },
   {
     "id": 9,
@@ -87,7 +114,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 9,
-    "image_filename": "09_The_Hermit.jpg"
+    "image_filename": "09_The_Hermit.jpg",
+    "element": "土",
+    "astrology": "处女座",
+    "numerology": "9 - 内省、独处、智慧、指引"
   },
   {
     "id": 10,
@@ -96,7 +126,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 10,
-    "image_filename": "10_Wheel_of_Fortune.jpg"
+    "image_filename": "10_Wheel_of_Fortune.jpg",
+    "element": "火",
+    "astrology": "木星",
+    "numerology": "10 - 命运、循环、转变、宇宙规律"
   },
   {
     "id": 11,
@@ -105,7 +138,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 11,
-    "image_filename": "11_Justice.jpg"
+    "image_filename": "11_Justice.jpg",
+    "element": "风",
+    "astrology": "天秤座",
+    "numerology": "11 - 平衡、公正、真理、因果"
   },
   {
     "id": 12,
@@ -114,7 +150,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 12,
-    "image_filename": "12_The_Hanged_Man.jpg"
+    "image_filename": "12_The_Hanged_Man.jpg",
+    "element": "水",
+    "astrology": "海王星",
+    "numerology": "12 - 牺牲、暂停、新视角、放手"
   },
   {
     "id": 13,
@@ -123,7 +162,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 13,
-    "image_filename": "13_Death.jpg"
+    "image_filename": "13_Death.jpg",
+    "element": "水",
+    "astrology": "天蝎座",
+    "numerology": "13 - 变革、结束、转化、重生"
   },
   {
     "id": 14,
@@ -132,7 +174,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 14,
-    "image_filename": "14_Temperance.jpg"
+    "image_filename": "14_Temperance.jpg",
+    "element": "火",
+    "astrology": "射手座",
+    "numerology": "14 - 平衡、和谐、融合、温和"
   },
   {
     "id": 15,
@@ -141,7 +186,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 15,
-    "image_filename": "15_The_Devil.jpg"
+    "image_filename": "15_The_Devil.jpg",
+    "element": "土",
+    "astrology": "摩羯座",
+    "numerology": "15 - 束缚、欲望、物质、阴影"
   },
   {
     "id": 16,
@@ -150,7 +198,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 16,
-    "image_filename": "16_The_Tower.jpg"
+    "image_filename": "16_The_Tower.jpg",
+    "element": "火",
+    "astrology": "火星",
+    "numerology": "16 - 突变、崩塌、启示、释放"
   },
   {
     "id": 17,
@@ -159,7 +210,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 17,
-    "image_filename": "17_The_Star.jpg"
+    "image_filename": "17_The_Star.jpg",
+    "element": "风",
+    "astrology": "水瓶座",
+    "numerology": "17 - 希望、灵感、更新、宁静"
   },
   {
     "id": 18,
@@ -168,7 +222,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 18,
-    "image_filename": "18_The_Moon.jpg"
+    "image_filename": "18_The_Moon.jpg",
+    "element": "水",
+    "astrology": "双鱼座",
+    "numerology": "18 - 幻象、潜意识、直觉、梦境"
   },
   {
     "id": 19,
@@ -177,7 +234,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 19,
-    "image_filename": "19_The_Sun.jpg"
+    "image_filename": "19_The_Sun.jpg",
+    "element": "火",
+    "astrology": "太阳",
+    "numerology": "19 - 喜悦、成功、清晰、活力"
   },
   {
     "id": 20,
@@ -186,7 +246,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 20,
-    "image_filename": "20_Judgement.jpg"
+    "image_filename": "20_Judgement.jpg",
+    "element": "火",
+    "astrology": "冥王星",
+    "numerology": "20 - 觉醒、复苏、评估、呼唤"
   },
   {
     "id": 21,
@@ -195,7 +258,10 @@
     "arcana": "大阿卡那",
     "suit": null,
     "rank": 21,
-    "image_filename": "21_The_World.jpg"
+    "image_filename": "21_The_World.jpg",
+    "element": "土",
+    "astrology": "土星",
+    "numerology": "21 - 完成、整合、成就、圆满"
   },
   {
     "id": 22,
@@ -204,7 +270,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 2,
-    "image_filename": "22_Two_of_Wands.jpg"
+    "image_filename": "22_Two_of_Wands.jpg",
+    "element": "火",
+    "astrology": "白羊座 0°-10°",
+    "numerology": "2 - 计划、决策、掌控、发展潜力"
   },
   {
     "id": 23,
@@ -213,7 +282,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 3,
-    "image_filename": "23_Three_of_Wands.jpg"
+    "image_filename": "23_Three_of_Wands.jpg",
+    "element": "火",
+    "astrology": "白羊座 10°-20°",
+    "numerology": "3 - 扩展、探索、远见、商机"
   },
   {
     "id": 24,
@@ -222,7 +294,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 4,
-    "image_filename": "24_Four_of_Wands.jpg"
+    "image_filename": "24_Four_of_Wands.jpg",
+    "element": "火",
+    "astrology": "白羊座 20°-30°",
+    "numerology": "4 - 庆祝、和谐、家庭、团体成就"
   },
   {
     "id": 25,
@@ -231,7 +306,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 5,
-    "image_filename": "25_Five_of_Wands.jpg"
+    "image_filename": "25_Five_of_Wands.jpg",
+    "element": "火",
+    "astrology": "狮子座 0°-10°",
+    "numerology": "5 - 竞争、冲突、挑战、动态张力"
   },
   {
     "id": 26,
@@ -240,7 +318,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 6,
-    "image_filename": "26_Six_of_Wands.jpg"
+    "image_filename": "26_Six_of_Wands.jpg",
+    "element": "火",
+    "astrology": "狮子座 10°-20°",
+    "numerology": "6 - 胜利、认可、自豪、进步"
   },
   {
     "id": 27,
@@ -249,7 +330,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 7,
-    "image_filename": "27_Seven_of_Wands.jpg"
+    "image_filename": "27_Seven_of_Wands.jpg",
+    "element": "火",
+    "astrology": "狮子座 20°-30°",
+    "numerology": "7 - 防御、坚持、挑战、竞争优势"
   },
   {
     "id": 28,
@@ -258,7 +342,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 8,
-    "image_filename": "28_Eight_of_Wands.jpg"
+    "image_filename": "28_Eight_of_Wands.jpg",
+    "element": "火",
+    "astrology": "射手座 0°-10°",
+    "numerology": "8 - 迅速、行动、动力、进展"
   },
   {
     "id": 29,
@@ -267,7 +354,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 9,
-    "image_filename": "29_Nine_of_Wands.jpg"
+    "image_filename": "29_Nine_of_Wands.jpg",
+    "element": "火",
+    "astrology": "射手座 10°-20°",
+    "numerology": "9 - 坚韧、毅力、最后防线、警惕"
   },
   {
     "id": 30,
@@ -276,7 +366,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 10,
-    "image_filename": "30_Ten_of_Wands.jpg"
+    "image_filename": "30_Ten_of_Wands.jpg",
+    "element": "火",
+    "astrology": "射手座 20°-30°",
+    "numerology": "10 - 负担、责任、压力、成就的代价"
   },
   {
     "id": 31,
@@ -285,7 +378,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 11,
-    "image_filename": "31_Page_of_Wands.jpg"
+    "image_filename": "31_Page_of_Wands.jpg",
+    "element": "火",
+    "astrology": "火象星座",
+    "numerology": "11 - 探索者、学习者、热情的信使"
   },
   {
     "id": 32,
@@ -294,7 +390,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 12,
-    "image_filename": "32_Knight_of_Wands.jpg"
+    "image_filename": "32_Knight_of_Wands.jpg",
+    "element": "火",
+    "astrology": "火象星座",
+    "numerology": "12 - 行动、冒险、冲动、热情"
   },
   {
     "id": 33,
@@ -303,7 +402,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 13,
-    "image_filename": "33_Queen_of_Wands.jpg"
+    "image_filename": "33_Queen_of_Wands.jpg",
+    "element": "火",
+    "astrology": "火象星座",
+    "numerology": "13 - 自信、活力、魅力、创造力"
   },
   {
     "id": 34,
@@ -312,7 +414,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 14,
-    "image_filename": "34_King_of_Wands.jpg"
+    "image_filename": "34_King_of_Wands.jpg",
+    "element": "火",
+    "astrology": "火象星座",
+    "numerology": "14 - 领导力、激励、威严、创造性愿景"
   },
   {
     "id": 35,
@@ -321,7 +426,10 @@
     "arcana": "小阿卡那",
     "suit": "权杖",
     "rank": 1,
-    "image_filename": "35_Ace_of_Wands.jpg"
+    "image_filename": "35_Ace_of_Wands.jpg",
+    "element": "火",
+    "astrology": "火象星座精华",
+    "numerology": "1 - 创造、灵感、潜能、新开始"
   },
   {
     "id": 36,
@@ -330,7 +438,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 2,
-    "image_filename": "36_Two_of_Cups.jpg"
+    "image_filename": "36_Two_of_Cups.jpg",
+    "element": "水",
+    "astrology": "巨蟹座 0°-10°",
+    "numerology": "2 - 伙伴关系、和谐、爱、互惠"
   },
   {
     "id": 37,
@@ -339,7 +450,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 3,
-    "image_filename": "37_Three_of_Cups.jpg"
+    "image_filename": "37_Three_of_Cups.jpg",
+    "element": "水",
+    "astrology": "巨蟹座 10°-20°",
+    "numerology": "3 - 庆祝、友谊、社交、喜悦"
   },
   {
     "id": 38,
@@ -348,7 +462,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 4,
-    "image_filename": "38_Four_of_Cups.jpg"
+    "image_filename": "38_Four_of_Cups.jpg",
+    "element": "水",
+    "astrology": "巨蟹座 20°-30°",
+    "numerology": "4 - 倦怠、不满、错失机会、反思"
   },
   {
     "id": 39,
@@ -357,7 +474,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 5,
-    "image_filename": "39_Five_of_Cups.jpg"
+    "image_filename": "39_Five_of_Cups.jpg",
+    "element": "水",
+    "astrology": "天蝎座 0°-10°",
+    "numerology": "5 - 悲伤、失落、遗憾、悔恨"
   },
   {
     "id": 40,
@@ -366,7 +486,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 6,
-    "image_filename": "40_Six_of_Cups.jpg"
+    "image_filename": "40_Six_of_Cups.jpg",
+    "element": "水",
+    "astrology": "天蝎座 10°-20°",
+    "numerology": "6 - 怀旧、纯真、回忆、温馨"
   },
   {
     "id": 41,
@@ -375,7 +498,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 7,
-    "image_filename": "41_Seven_of_Cups.jpg"
+    "image_filename": "41_Seven_of_Cups.jpg",
+    "element": "水",
+    "astrology": "天蝎座 20°-30°",
+    "numerology": "7 - 幻想、选择、迷惑、可能性"
   },
   {
     "id": 42,
@@ -384,7 +510,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 8,
-    "image_filename": "42_Eight_of_Cups.jpg"
+    "image_filename": "42_Eight_of_Cups.jpg",
+    "element": "水",
+    "astrology": "双鱼座 0°-10°",
+    "numerology": "8 - 放弃、寻求更多、转变、离开"
   },
   {
     "id": 43,
@@ -393,7 +522,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 9,
-    "image_filename": "43_Nine_of_Cups.jpg"
+    "image_filename": "43_Nine_of_Cups.jpg",
+    "element": "水",
+    "astrology": "双鱼座 10°-20°",
+    "numerology": "9 - 满足、愿望实现、满足感、丰盛"
   },
   {
     "id": 44,
@@ -402,7 +534,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 10,
-    "image_filename": "44_Ten_of_Cups.jpg"
+    "image_filename": "44_Ten_of_Cups.jpg",
+    "element": "水",
+    "astrology": "双鱼座 20°-30°",
+    "numerology": "10 - 和谐、圆满、幸福家庭、永恒的爱"
   },
   {
     "id": 45,
@@ -411,7 +546,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 11,
-    "image_filename": "45_Page_of_Cups.jpg"
+    "image_filename": "45_Page_of_Cups.jpg",
+    "element": "水",
+    "astrology": "水象星座",
+    "numerology": "11 - 情感使者、创意启示、心灵敏感"
   },
   {
     "id": 46,
@@ -420,7 +558,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 12,
-    "image_filename": "46_Knight_of_Cups.jpg"
+    "image_filename": "46_Knight_of_Cups.jpg",
+    "element": "水",
+    "astrology": "水象星座",
+    "numerology": "12 - 浪漫、魅力、追求、情感行动"
   },
   {
     "id": 47,
@@ -429,7 +570,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 13,
-    "image_filename": "47_Queen_of_Cups.jpg"
+    "image_filename": "47_Queen_of_Cups.jpg",
+    "element": "水",
+    "astrology": "水象星座",
+    "numerology": "13 - 慈爱、直觉、情感丰富、同理心"
   },
   {
     "id": 48,
@@ -438,7 +582,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 14,
-    "image_filename": "48_King_of_Cups.jpg"
+    "image_filename": "48_King_of_Cups.jpg",
+    "element": "水",
+    "astrology": "水象星座",
+    "numerology": "14 - 情感控制、智慧、平衡、善解人意"
   },
   {
     "id": 49,
@@ -447,7 +594,10 @@
     "arcana": "小阿卡那",
     "suit": "圣杯",
     "rank": 1,
-    "image_filename": "49_Ace_of_Cups.jpg"
+    "image_filename": "49_Ace_of_Cups.jpg",
+    "element": "水",
+    "astrology": "水象星座精华",
+    "numerology": "1 - 爱的开始、情感丰盛、创造力、灵感"
   },
   {
     "id": 50,
@@ -456,7 +606,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 2,
-    "image_filename": "50_Two_of_Swords.jpg"
+    "image_filename": "50_Two_of_Swords.jpg",
+    "element": "风",
+    "astrology": "天秤座 0°-10°",
+    "numerology": "2 - 两难、平衡、抉择、僵局"
   },
   {
     "id": 51,
@@ -465,7 +618,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 3,
-    "image_filename": "51_Three_of_Swords.jpg"
+    "image_filename": "51_Three_of_Swords.jpg",
+    "element": "风",
+    "astrology": "天秤座 10°-20°",
+    "numerology": "3 - 心碎、悲伤、痛苦、分离"
   },
   {
     "id": 52,
@@ -474,7 +630,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 4,
-    "image_filename": "52_Four_of_Swords.jpg"
+    "image_filename": "52_Four_of_Swords.jpg",
+    "element": "风",
+    "astrology": "天秤座 20°-30°",
+    "numerology": "4 - 休息、恢复、冥想、隐退"
   },
   {
     "id": 53,
@@ -483,7 +642,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 5,
-    "image_filename": "53_Five_of_Swords.jpg"
+    "image_filename": "53_Five_of_Swords.jpg",
+    "element": "风",
+    "astrology": "水瓶座 0°-10°",
+    "numerology": "5 - 冲突、挫败、自私、输赢"
   },
   {
     "id": 54,
@@ -492,7 +654,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 6,
-    "image_filename": "54_Six_of_Swords.jpg"
+    "image_filename": "54_Six_of_Swords.jpg",
+    "element": "风",
+    "astrology": "水瓶座 10°-20°",
+    "numerology": "6 - 过渡、离开困境、渐进改善、旅程"
   },
   {
     "id": 55,
@@ -501,7 +666,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 7,
-    "image_filename": "55_Seven_of_Swords.jpg"
+    "image_filename": "55_Seven_of_Swords.jpg",
+    "element": "风",
+    "astrology": "水瓶座 20°-30°",
+    "numerology": "7 - 欺骗、狡猾、策略、不诚实"
   },
   {
     "id": 56,
@@ -510,7 +678,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 8,
-    "image_filename": "56_Eight_of_Swords.jpg"
+    "image_filename": "56_Eight_of_Swords.jpg",
+    "element": "风",
+    "astrology": "双子座 0°-10°",
+    "numerology": "8 - 限制、束缚、困境、自我设限"
   },
   {
     "id": 57,
@@ -519,7 +690,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 9,
-    "image_filename": "57_Nine_of_Swords.jpg"
+    "image_filename": "57_Nine_of_Swords.jpg",
+    "element": "风",
+    "astrology": "双子座 10°-20°",
+    "numerology": "9 - 噩梦、焦虑、恐惧、无法入眠"
   },
   {
     "id": 58,
@@ -528,7 +702,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 10,
-    "image_filename": "58_Ten_of_Swords.jpg"
+    "image_filename": "58_Ten_of_Swords.jpg",
+    "element": "风",
+    "astrology": "双子座 20°-30°",
+    "numerology": "10 - 失败、结束、牺牲、痛苦终结"
   },
   {
     "id": 59,
@@ -537,7 +714,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 11,
-    "image_filename": "59_Page_of_Swords.jpg"
+    "image_filename": "59_Page_of_Swords.jpg",
+    "element": "风",
+    "astrology": "风象星座",
+    "numerology": "11 - 好奇、警觉、学习、探究"
   },
   {
     "id": 60,
@@ -546,7 +726,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 12,
-    "image_filename": "60_Knight_of_Swords.jpg"
+    "image_filename": "60_Knight_of_Swords.jpg",
+    "element": "风",
+    "astrology": "风象星座",
+    "numerology": "12 - 迅速、果断、进攻性、思想行动"
   },
   {
     "id": 61,
@@ -555,7 +738,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 13,
-    "image_filename": "61_Queen_of_Swords.jpg"
+    "image_filename": "61_Queen_of_Swords.jpg",
+    "element": "风",
+    "astrology": "风象星座",
+    "numerology": "13 - 独立、清晰、理性、洞察力"
   },
   {
     "id": 62,
@@ -564,7 +750,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 14,
-    "image_filename": "62_King_of_Swords.jpg"
+    "image_filename": "62_King_of_Swords.jpg",
+    "element": "风",
+    "astrology": "风象星座",
+    "numerology": "14 - 理智、权威、真理、公正"
   },
   {
     "id": 63,
@@ -573,7 +762,10 @@
     "arcana": "小阿卡那",
     "suit": "宝剑",
     "rank": 1,
-    "image_filename": "63_Ace_of_Swords.jpg"
+    "image_filename": "63_Ace_of_Swords.jpg",
+    "element": "风",
+    "astrology": "风象星座精华",
+    "numerology": "1 - 清晰、真理、突破、新思想"
   },
   {
     "id": 64,
@@ -582,7 +774,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 2,
-    "image_filename": "64_Two_of_Pentacles.jpg"
+    "image_filename": "64_Two_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "摩羯座 0°-10°",
+    "numerology": "2 - 平衡、灵活、变通、多任务"
   },
   {
     "id": 65,
@@ -591,7 +786,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 3,
-    "image_filename": "65_Three_of_Pentacles.jpg"
+    "image_filename": "65_Three_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "摩羯座 10°-20°",
+    "numerology": "3 - 合作、技艺、专业、团队成就"
   },
   {
     "id": 66,
@@ -600,7 +798,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 4,
-    "image_filename": "66_Four_of_Pentacles.jpg"
+    "image_filename": "66_Four_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "摩羯座 20°-30°",
+    "numerology": "4 - 安全、保守、拥有、控制"
   },
   {
     "id": 67,
@@ -609,7 +810,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 5,
-    "image_filename": "67_Five_of_Pentacles.jpg"
+    "image_filename": "67_Five_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "金牛座 0°-10°",
+    "numerology": "5 - 贫困、失落、疏远、艰难"
   },
   {
     "id": 68,
@@ -618,7 +822,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 6,
-    "image_filename": "68_Six_of_Pentacles.jpg"
+    "image_filename": "68_Six_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "金牛座 10°-20°",
+    "numerology": "6 - 慷慨、给予、接受、平衡交换"
   },
   {
     "id": 69,
@@ -627,7 +834,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 7,
-    "image_filename": "69_Seven_of_Pentacles.jpg"
+    "image_filename": "69_Seven_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "金牛座 20°-30°",
+    "numerology": "7 - 评估、耐心、努力投资、等待收获"
   },
   {
     "id": 70,
@@ -636,7 +846,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 8,
-    "image_filename": "70_Eight_of_Pentacles.jpg"
+    "image_filename": "70_Eight_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "处女座 0°-10°",
+    "numerology": "8 - 专注、技能提升、勤奋、精益求精"
   },
   {
     "id": 71,
@@ -645,7 +858,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 9,
-    "image_filename": "71_Nine_of_Pentacles.jpg"
+    "image_filename": "71_Nine_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "处女座 10°-20°",
+    "numerology": "9 - 自给自足、财务独立、优雅、成就"
   },
   {
     "id": 72,
@@ -654,7 +870,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 10,
-    "image_filename": "72_Ten_of_Pentacles.jpg"
+    "image_filename": "72_Ten_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "处女座 20°-30°",
+    "numerology": "10 - 家族财富、传统、继承、丰饶安全"
   },
   {
     "id": 73,
@@ -663,7 +882,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 11,
-    "image_filename": "73_Page_of_Pentacles.jpg"
+    "image_filename": "73_Page_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "土象星座",
+    "numerology": "11 - 学习者、学徒、物质机会、务实"
   },
   {
     "id": 74,
@@ -672,7 +894,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 12,
-    "image_filename": "74_Knight_of_Pentacles.jpg"
+    "image_filename": "74_Knight_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "土象星座",
+    "numerology": "12 - 勤勉、可靠、坚定、谨慎"
   },
   {
     "id": 75,
@@ -681,7 +906,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 13,
-    "image_filename": "75_Queen_of_Pentacles.jpg"
+    "image_filename": "75_Queen_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "土象星座",
+    "numerology": "13 - 丰饶、滋养、务实、物质关怀"
   },
   {
     "id": 76,
@@ -690,7 +918,10 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 14,
-    "image_filename": "76_King_of_Pentacles.jpg"
+    "image_filename": "76_King_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "土象星座",
+    "numerology": "14 - 富足、实现、事业有成、务实领导"
   },
   {
     "id": 77,
@@ -699,6 +930,9 @@
     "arcana": "小阿卡那",
     "suit": "星币",
     "rank": 1,
-    "image_filename": "77_Ace_of_Pentacles.jpg"
+    "image_filename": "77_Ace_of_Pentacles.jpg",
+    "element": "土",
+    "astrology": "土象星座精华",
+    "numerology": "1 - 物质开始、机会、繁荣、种子资本"
   }
 ] 

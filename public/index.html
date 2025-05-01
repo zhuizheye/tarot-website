@@ -65,6 +65,14 @@
         <h2 class="section-title">抽一张牌获得当下指引</h2>
         
         <div class="tarot-area">
+          <div class="mystical-elements">
+            <div class="mystical-element">✧</div>
+            <div class="mystical-element">★</div>
+            <div class="mystical-element">✦</div>
+            <div class="mystical-element">✴</div>
+            <div class="mystical-element">✹</div>
+            <div class="mystical-element">✷</div>
+          </div>
           <div class="deck-container">
             <div class="deck" id="tarot-deck">
               <div class="card">
@@ -257,20 +265,20 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // 初始化 GSAP 动画
-      gsap.from('.hero-banner', {duration: 1, y: 30, opacity: 0, ease: 'power3.out'});
+      gsap.from('.hero-banner', {duration: 1, y: 20, opacity: 0, ease: 'power3.out'});
       gsap.from('.hero-icon', {
         duration: 2, 
         opacity: 0, 
-        y: -20, 
+        y: -10, 
         stagger: 0.2, 
         ease: 'power3.out',
         delay: 0.5
       });
       
-      // 首先设置所有卡片初始状态为透明
-      gsap.set('.category-card', {opacity: 0, y: 20});
+      // 设置所有卡片初始状态
+      gsap.set('.category-card', {opacity: 0, y: 10});
       
-      // 然后同时显示所有卡片
+      // 动画效果改为to而非from，减小动画幅度，防止对齐问题
       gsap.to('.category-card', {
         scrollTrigger: {
           trigger: '.categories-grid',
@@ -281,6 +289,37 @@
         opacity: 1,
         ease: 'power2.out',
         stagger: 0.05
+      });
+      
+      // 添加神秘元素的动画
+      const mysticalElements = document.querySelectorAll('.mystical-element');
+      gsap.to(mysticalElements, {
+        opacity: 0.7,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'power2.out'
+      });
+      
+      // 当用户悬停在卡片上时，增强神秘元素的亮度
+      const tarotDeck = document.getElementById('tarot-deck');
+      tarotDeck.addEventListener('mouseenter', function() {
+        gsap.to(mysticalElements, {
+          opacity: 1,
+          scale: 1.2,
+          color: 'rgba(212, 175, 55, 0.5)',
+          duration: 0.5,
+          stagger: 0.1
+        });
+      });
+      
+      tarotDeck.addEventListener('mouseleave', function() {
+        gsap.to(mysticalElements, {
+          opacity: 0.7,
+          scale: 1,
+          color: 'rgba(212, 175, 55, 0.2)',
+          duration: 0.5,
+          stagger: 0.1
+        });
       });
     });
   </script>

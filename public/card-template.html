@@ -104,59 +104,10 @@
     function renderCardPage(card, interpretations) {
       const cardContainer = document.getElementById('card-container');
       
-      // Determine element associations based on card properties
-      let element = '';
-      let astrology = '';
-      let numerology = '';
-      
-      if (card.arcana === "大阿卡那") {
-        // For major arcana, set specific associations
-        switch(card.rank) {
-          case 0: // The Fool
-            element = '风';
-            astrology = '天王星';
-            numerology = '0 - 无限可能、空无、潜能';
-            break;
-          case 1: // The Magician
-            element = '风';
-            astrology = '水星';
-            numerology = '1 - 创造、开始、独立';
-            break;
-          // Add other major arcana associations as needed
-          default:
-            element = '未知';
-            astrology = '未知';
-            numerology = `${card.rank} - 未知含义`;
-        }
-      } else {
-        // For minor arcana, set based on suit
-        switch(card.suit) {
-          case '权杖':
-            element = '火';
-            break;
-          case '圣杯':
-            element = '水';
-            break;
-          case '宝剑':
-            element = '风';
-            break;
-          case '星币':
-            element = '土';
-            break;
-          default:
-            element = '未知';
-        }
-        
-        // Set numerology based on rank
-        if (card.rank === 1) {
-          numerology = '1 - 新的开始、潜力、种子';
-        } else if (card.rank >= 2 && card.rank <= 10) {
-          numerology = `${card.rank} - 与数字${card.rank}相关的能量`;
-        } else {
-          // Court cards
-          numerology = '不适用';
-        }
-      }
+      // 使用卡牌中已有的元素、星座和数字象征数据
+      let element = card.element || '未知';
+      let astrology = card.astrology || '未知';
+      let numerology = card.numerology || '未知';
       
       cardContainer.innerHTML = `
         <header class="card-header">
@@ -204,13 +155,96 @@
           </div>
         </section>
         
+        <!-- Add the "Explore Tarot World" section -->
+        <section class="main-section explore-section">
+          <h2 class="section-title">探索塔罗牌世界</h2>
+          
+          <div class="categories-grid">
+            <div class="category-card">
+              <a href="/cards-list.html#major-arcana" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <div class="category-card-content">
+                  <div class="category-icon">
+                    <i class="fas fa-sun"></i>
+                  </div>
+                  <h3>大阿卡那</h3>
+                  <p>22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="category-card">
+              <a href="/cards-list.html#wands" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <div class="category-card-content">
+                  <div class="category-icon">
+                    <i class="fas fa-fire"></i>
+                  </div>
+                  <h3>权杖牌组</h3>
+                  <p>对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="category-card">
+              <a href="/cards-list.html#cups" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <div class="category-card-content">
+                  <div class="category-icon">
+                    <i class="fas fa-water"></i>
+                  </div>
+                  <h3>圣杯牌组</h3>
+                  <p>对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="category-card">
+              <a href="/cards-list.html#swords" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <div class="category-card-content">
+                  <div class="category-icon">
+                    <i class="fas fa-wind"></i>
+                  </div>
+                  <h3>宝剑牌组</h3>
+                  <p>对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="category-card">
+              <a href="/cards-list.html#pentacles" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <div class="category-card-content">
+                  <div class="category-icon">
+                    <i class="fas fa-mountain"></i>
+                  </div>
+                  <h3>星币牌组</h3>
+                  <p>对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="category-card">
+              <a href="/readings.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                <div class="category-card-content">
+                  <div class="category-icon">
+                    <i class="fas fa-book-open"></i>
+                  </div>
+                  <h3>牌阵解读</h3>
+                  <p>不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="view-all" style="text-align: center; margin-top: 30px;">
+            <a href="/cards-list.html" class="explore-all-button">探索完整塔罗牌组 <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </section>
+        
         <section class="related-cards">
           <h2>相关塔罗牌</h2>
           <ul class="cards-grid" id="related-cards-container">
-            <li>
+            <li class="loading-message">
               <div style="text-align: center; padding: 20px;">
-                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #6447b5;"></i>
-                <p>加载相关卡牌...</p>
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>正在寻找相关牌义关联...</p>
               </div>
             </li>
           </ul>
@@ -256,7 +290,7 @@
       const container = document.getElementById('related-cards-container');
       
       if (!relatedCards || relatedCards.length === 0) {
-        container.innerHTML = '<p>没有找到相关卡牌</p>';
+        container.innerHTML = '<p class="no-related-cards">没有找到相关卡牌</p>';
         return;
       }
       
@@ -268,7 +302,7 @@
         html += `
           <li>
             <div class="card-thumbnail">
-              <a href="/cards/${cardSlug}">
+              <a href="/cards/${cardSlug}" title="${card.name} - ${card.english_name}">
                 <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name}">
                 <h3>${card.name}<span class="card-english-name">${card.english_name}</span></h3>
               </a>
@@ -278,6 +312,19 @@
       });
       
       container.innerHTML = html;
+      
+      // Add animation effect for the related cards
+      const relatedCardItems = document.querySelectorAll('.related-cards .card-thumbnail');
+      relatedCardItems.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 100 + (index * 150));
+      });
     }
     
     function updateMetaTags(card) {
