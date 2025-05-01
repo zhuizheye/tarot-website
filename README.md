@@ -1,100 +1,53 @@
 # RWS 塔罗牌解说网站
 
-一个全面的Rider-Waite-Smith（RWS）塔罗牌解读网站，提供78张塔罗牌的详细解读和多种牌阵分析。
+一个专业的Rider-Waite-Smith塔罗牌解读网站，提供78张塔罗牌的详细解读与指引。
 
-## 功能特色
+## 功能特点
 
-- 完整的78张RWS塔罗牌库，包含大阿卡那和小阿卡那
-- 每张牌的详细解读，包括故事背景、象征意义、感情/事业/学业解读
-- 正位和逆位的完整解释
-- 单张随机抽牌功能
-- 多种牌阵解读（单张、三张牌阵等）
-- 响应式设计，适配各种设备
-- 分类浏览所有塔罗牌
-- "关于RWS塔罗牌"的详细介绍页面
+- **单卡抽取**: 随机抽取一张塔罗牌，获取当下的指引。
+- **三张牌阵**: 提供过去、现在、未来三张牌的布局解析。
+- **完整卡牌列表**: 展示所有78张塔罗牌，包括大阿卡那和小阿卡那。
+- **详细解读**: 每张牌都有详细的故事背景、象征意义、正逆位解读。
+- **分类解析**: 提供感情、事业、学业等不同方面的专业解读。
 
 ## 技术栈
 
-- 前端：原生HTML, CSS, JavaScript
-- 动画：GSAP (GreenSock Animation Platform)
-- 后端：Node.js, Express
-- 数据：JSON文件存储
+- 前端: HTML5, CSS3, JavaScript
+- 后端: Node.js, Express
+- 数据存储: JSON
 
-## 安装指南
+## 快速开始
 
-1. 克隆仓库到本地
-
-```bash
-git clone https://github.com/yourusername/rws-tarot.git
-cd rws-tarot
-```
+1. 克隆项目到本地
+   ```
+   git clone https://github.com/YOUR_USERNAME/tarot-website.git
+   cd tarot-website
+   ```
 
 2. 安装依赖
+   ```
+   npm install
+   ```
 
-```bash
-npm install
-```
+3. 启动服务器
+   ```
+   npm start
+   ```
 
-3. 启动开发服务器
+4. 打开浏览器访问 `http://localhost:3000`
 
-```bash
-npm run dev
-```
+## 设计特色
 
-4. 在浏览器中访问 `http://localhost:3000`
-
-## 目录结构
-
-```
-├── package.json          # 项目配置文件
-├── public/               # 静态资源目录
-│   ├── css/              # CSS样式文件
-│   ├── js/               # 客户端JavaScript文件
-│   ├── images/           # 图片资源
-│   │   └── tarot/        # 塔罗牌图片
-│   ├── index.html        # 首页
-│   ├── about.html        # 关于页面
-│   ├── cards-list.html   # 塔罗牌列表页面
-│   ├── readings.html     # 牌阵解读页面
-│   ├── 404.html          # 404错误页面
-│   └── cards/            # 单张塔罗牌详情页面
-├── src/                  # 服务器端代码
-│   ├── server.js         # 主服务器文件
-│   ├── routes/           # 路由处理
-│   ├── api/              # API处理逻辑
-│   └── data/             # 数据文件
-│       ├── cards.json    # 塔罗牌数据
-│       └── interpretations.json # 塔罗牌解读数据
-└── README.md             # 项目说明文档
-```
-
-## 部署
-
-1. 构建生产版本
-
-```bash
-npm run build
-```
-
-2. 启动生产服务器
-
-```bash
-npm start
-```
-
-## 贡献指南
-
-1. Fork这个仓库
-2. 创建你的特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交你的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 创建一个Pull Request
+- 深紫色(#472b71)和金色(#d4af37)的高贵配色
+- 优雅的卡片布局和动画效果
+- 响应式设计，适配各种设备
+- 精心设计的卡片展示和解读界面
 
 ## 许可证
 
-MIT
+本项目采用 MIT 许可证。详细信息请查看 [LICENSE](LICENSE) 文件。
 
 ## 致谢
 
-- Rider-Waite-Smith塔罗牌的创作者：Arthur Edward Waite和Pamela Colman Smith
-- 所有为本项目提供塔罗牌解读和资源的贡献者 
+- 感谢Rider-Waite-Smith塔罗牌的创作者
+- 感谢所有参与这个项目的贡献者 
