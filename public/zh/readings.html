@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 国际化脚本会在初始化时设置正确的语言 -->
+  <script src="/js/i18n.js"></script>
+  <title>塔罗牌牌阵解读 | RWS 塔罗牌解说</title>
+  <meta name="description" content="探索多种塔罗牌牌阵，包括三张牌阵、时间线牌阵、凯尔特十字牌阵等，获取更全面的指引和启示。">
+  <link rel="canonical" href="/zh/readings.html">
+  <meta property="og:title" content="塔罗牌牌阵解读 | RWS 塔罗牌解说">
+  <meta property="og:description" content="探索多种塔罗牌牌阵，包括三张牌阵、时间线牌阵、凯尔特十字牌阵等，获取更全面的指引和启示。">
+  <meta property="og:url" content="/zh/readings.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="/js/components.js"></script>
+  <style>
+    .reading-section {
+      padding: 40px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .reading-section h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+    
+    .reading-intro {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    
+    .spreads-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .spread-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .spread-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .spread-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      background-color: #f5f0ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .spread-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .spread-icon {
+      font-size: 80px;
+      color: #6447b5;
+    }
+    
+    .spread-content {
+      padding: 20px;
+    }
+    
+    .spread-content h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    
+    .spread-content p {
+      margin-bottom: 15px;
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    .spread-content .cards-count {
+      font-style: italic;
+      color: #888;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .spread-button {
+      display: inline-block;
+      background-color: #6447b5;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+    
+    .spread-button:hover {
+      background-color: #523696;
+    }
+    
+    .coming-soon {
+      opacity: 0.7;
+      position: relative;
+    }
+    
+    .coming-soon::after {
+      content: "即将推出";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      background-color: rgba(255, 87, 51, 0.9);
+      color: white;
+      padding: 5px 20px;
+      font-weight: bold;
+      z-index: 1;
+      border-radius: 3px;
+    }
+    
+    .tarot-tips {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      padding: 30px;
+      background-color: #f9f7ff;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .tarot-tips h2 {
+      color: #6447b5;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .tarot-tips ul {
+      padding-left: 20px;
+    }
+    
+    .tarot-tips li {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .reading-section h1 {
+        font-size: 2rem;
+      }
+      
+      .spreads-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .tarot-tips {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Component -->
+  <div id="header-component"></div>
+  
+  <div class="app-container">
+    <main>
+      <section class="reading-section">
+        <h1>塔罗牌牌阵解读</h1>
+        
+        <p class="reading-intro">
+          牌阵是一种特定的排列方式，通过不同的位置和相互关系，帮助读者获得更全面和深入的指引。
+          不同的牌阵适用于不同类型的问题和情境。以下是几种常见的塔罗牌阵，您可以根据自己的需求选择合适的牌阵进行解读。
+        </p>
+        
+        <div class="spreads-container">
+          <div class="spread-item">
+            <div class="spread-image">
+              <i class="fas fa-hand-sparkles spread-icon"></i>
+            </div>
+            <div class="spread-content">
+              <h2>单张牌阵</h2>
+              <span class="cards-count">使用1张牌</span>
+              <p>最简单的牌阵，适合日常指引或快速解答简单问题。抽取一张牌获取当日能量或特定问题的直接指引。</p>
+              <a href="/zh/" class="spread-button">开始解读</a>
+            </div>
+          </div>
+          
+          <div class="spread-item">
+            <div class="spread-image">
+              <i class="fas fa-grip-horizontal spread-icon"></i>
+            </div>
+            <div class="spread-content">
+              <h2>三张牌阵</h2>
+              <span class="cards-count">使用3张牌</span>
+              <p>经典且实用的牌阵，可以代表过去、现在和未来，或问题的原因、当前状况和建议行动。</p>
+              <a href="/zh/three-card-spread.html" class="spread-button">开始解读</a>
+            </div>
+          </div>
+          
+          <div class="spread-item coming-soon">
+            <div class="spread-image">
+              <i class="fas fa-arrows-alt-h spread-icon"></i>
+            </div>
+            <div class="spread-content">
+              <h2>时间线牌阵</h2>
+              <span class="cards-count">使用5张牌</span>
+              <p>扩展的时间线牌阵，包括过去的影响、现在的状况、隐藏的因素、即将到来的挑战和最终结果。</p>
+              <a href="#" class="spread-button">即将推出</a>
+            </div>
+          </div>
+          
+          <div class="spread-item coming-soon">
+            <div class="spread-image">
+              <i class="fas fa-cross spread-icon"></i>
+            </div>
+            <div class="spread-content">
+              <h2>凯尔特十字牌阵</h2>
+              <span class="cards-count">使用10张牌</span>
+              <p>最著名的复杂牌阵之一，提供全面的分析，包括当前情况、挑战、基础、过去、未来目标、影响因素等。</p>
+              <a href="#" class="spread-button">即将推出</a>
+            </div>
+          </div>
+          
+          <div class="spread-item coming-soon">
+            <div class="spread-image">
+              <i class="fas fa-heart spread-icon"></i>
+            </div>
+            <div class="spread-content">
+              <h2>关系牌阵</h2>
+              <span class="cards-count">使用7张牌</span>
+              <p>专为分析关系而设计的牌阵，探索两人之间的动态、共同挑战、沟通方式和关系潜力。</p>
+              <a href="#" class="spread-button">即将推出</a>
+            </div>
+          </div>
+          
+          <div class="spread-item coming-soon">
+            <div class="spread-image">
+              <i class="fas fa-user-circle spread-icon"></i>
+            </div>
+            <div class="spread-content">
+              <h2>自我探索牌阵</h2>
+              <span class="cards-count">使用6张牌</span>
+              <p>帮助深入了解自己的内心世界，包括当前的自我认知、隐藏的潜能、恐惧、优势、成长方向和内在指引。</p>
+              <a href="#" class="spread-button">即将推出</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tarot-tips">
+          <h2>塔罗解读小贴士</h2>
+          <ul>
+            <li><strong>设定清晰的问题</strong> - 在开始解读前，明确你想要获得指引的具体问题，这有助于获得更精准的答案。</li>
+            <li><strong>保持开放的心态</strong> - 塔罗牌不是命中注定的预言，而是一种探索可能性和获取洞见的工具。</li>
+            <li><strong>相信你的直觉</strong> - 除了传统解读，也要注意自己看到牌面时的第一感受，这往往包含重要信息。</li>
+            <li><strong>注意牌与牌之间的关系</strong> - 在多张牌阵中，牌与牌之间的联系和互动可以提供更深入的洞察。</li>
+            <li><strong>定期记录</strong> - 记录你的解读和实际发生的事件，这有助于提升你的塔罗解读能力。</li>
+            <li><strong>尊重塔罗的力量</strong> - 将塔罗视为自我反思和成长的工具，而不是决定一切的绝对答案。</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <!-- Footer Component -->
+  <div id="footer-component"></div>
+</body>
+</html> 

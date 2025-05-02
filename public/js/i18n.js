@@ -23,6 +23,9 @@ const i18n = {
   // 初始化i18n系统
   init: async function() {
     if (this.isInitialized) return;
+
+    // 立即添加防闪烁样式
+    this.addAntiFlashStyles();
     
     // 从URL路径确定当前语言
     this.currentLanguage = this.detectLanguageFromPath();
@@ -30,16 +33,58 @@ const i18n = {
     // 设置文档语言属性
     document.documentElement.lang = this.currentLanguage.split('-')[0];
     
-    // 加载翻译
-    await this.loadTranslations(this.currentLanguage);
-    
-    // 应用翻译到页面
-    this.updatePageLanguage();
-    
-    // 更新语言选择器
-    this.updateLanguageSelector();
-    
-    this.isInitialized = true;
+    try {
+      // 加载翻译
+      await this.loadTranslations(this.currentLanguage);
+      
+      // 应用翻译到页面
+      this.updatePageLanguage();
+      
+      // 更新语言选择器
+      this.updateLanguageSelector();
+      
+      // 修复站内链接
+      this.fixLinks();
+    } finally {
+      // 移除防闪烁样式，显示内容
+      this.removeAntiFlashStyles();
+      this.isInitialized = true;
+    }
+  },
+
+  // 添加防止闪烁的样式
+  addAntiFlashStyles: function() {
+    // 创建一个样式标签
+    const style = document.createElement('style');
+    style.id = 'i18n-anti-flash';
+    style.textContent = `
+      /* 隐藏所有带data-i18n属性的元素，直到翻译应用完成 */
+      [data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title], [data-i18n-value], [data-i18n-alt] {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+      /* 确保页面整体可见，只是翻译内容暂时不可见 */
+      body {
+        visibility: visible;
+      }
+    `;
+    document.head.appendChild(style);
+  },
+
+  // 移除防闪烁样式
+  removeAntiFlashStyles: function() {
+    // 移除样式标签并设置元素可见
+    const style = document.getElementById('i18n-anti-flash');
+    if (style) {
+      // 先将所有元素设为可见
+      document.querySelectorAll('[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-title], [data-i18n-value], [data-i18n-alt]')
+        .forEach(el => el.style.opacity = '1');
+      
+      // 短暂延迟后移除样式，确保过渡效果
+      setTimeout(() => {
+        style.remove();
+      }, 100);
+    }
   },
 
   // 加载翻译
@@ -244,10 +289,24 @@ const i18n = {
   }
 };
 
-// 页面加载完成后进行初始化
+// 立即检测语言并添加防闪烁样式
+(function() {
+  const currentLang = i18n.detectLanguageFromPath();
+  document.documentElement.lang = currentLang.split('-')[0];
+  
+  // 添加语言类以便于CSS选择器使用
+  document.documentElement.classList.add(`lang-${currentLang}`);
+  
+  // 如果是中文页面，提前设置html和body的字体
+  if (currentLang === 'zh-CN') {
+    document.documentElement.style.fontFamily = "'Noto Serif SC', serif";
+  }
+  
+  // 添加防闪烁样式
+  i18n.addAntiFlashStyles();
+})();
+
+// 页面加载完成后进行完整初始化
 document.addEventListener('DOMContentLoaded', () => {
-  i18n.init().then(() => {
-    // 修复站内链接
-    i18n.fixLinks();
-  });
+  i18n.init();
 }); 

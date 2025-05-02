@@ -1548,4 +1548,37 @@ html[lang="zh"] {
 .i18n-init [data-i18n-title], 
 .i18n-init [data-i18n-placeholder] {
   visibility: hidden;
+}
+
+/* 语言特定样式 - 确保页面加载时显示正确的字体 */
+html.lang-zh-CN,
+html.lang-zh-CN body {
+  font-family: 'Noto Serif SC', serif;
+}
+
+html.lang-en-US,
+html.lang-en-US body {
+  font-family: 'Playfair Display', serif;
+}
+
+/* 避免语言切换时的闪烁 */
+[data-i18n], 
+[data-i18n-html], 
+[data-i18n-placeholder], 
+[data-i18n-title], 
+[data-i18n-value], 
+[data-i18n-alt] {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* 确保翻译加载前后页面布局一致性 */
+h1[data-i18n], 
+h2[data-i18n], 
+h3[data-i18n], 
+h4[data-i18n] {
+  min-height: 1.2em;
+}
+
+p[data-i18n] {
+  min-height: 1em;
 } 
