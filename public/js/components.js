@@ -5,20 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const headerComponent = document.getElementById('header-component');
   const footerComponent = document.getElementById('footer-component');
 
+  // 获取当前语言
+  const currentLang = detectLanguage();
+  const langPrefix = currentLang === 'zh-CN' ? '/zh' : '';
+  
   // 插入页眉组件
   if (headerComponent) {
     headerComponent.innerHTML = `
       <header class="outer-header">
         <div class="app-container">
           <header>
-            <h1><a href="/" title="Return to Home" data-i18n-title="navigation.returnHome"><i class="fas fa-moon"></i> RWS <span data-i18n="navigation.tarotTitle">Tarot Guide</span> <i class="fas fa-sun"></i></a></h1>
+            <h1><a href="${langPrefix}/" title="Return to Home" data-i18n-title="navigation.returnHome"><i class="fas fa-moon"></i> RWS <span data-i18n="navigation.tarotTitle">Tarot Guide</span> <i class="fas fa-sun"></i></a></h1>
             <div style="display: flex; align-items: center;">
               <nav>
                 <ul class="nav-list">
-                  <li><a href="/" id="nav-home" data-i18n="navigation.home">Home</a></li>
-                  <li><a href="/cards-list.html" id="nav-cards" data-i18n="navigation.cardsList">Cards List</a></li>
-                  <li><a href="/readings.html" id="nav-readings" data-i18n="navigation.readings">Readings</a></li>
-                  <li><a href="/about.html" id="nav-about" data-i18n="navigation.about">About</a></li>
+                  <li><a href="${langPrefix}/" id="nav-home" data-i18n="navigation.home">Home</a></li>
+                  <li><a href="${langPrefix}/cards-list.html" id="nav-cards" data-i18n="navigation.cardsList">Cards List</a></li>
+                  <li><a href="${langPrefix}/readings.html" id="nav-readings" data-i18n="navigation.readings">Readings</a></li>
+                  <li><a href="${langPrefix}/about.html" id="nav-about" data-i18n="navigation.about">About</a></li>
                 </ul>
               </nav>
               <div class="language-selector-container">
@@ -43,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <footer>
             <div class="footer-nav">
               <ul>
-                <li><a href="/" data-i18n="navigation.home">Home</a></li>
-                <li><a href="/cards-list.html" data-i18n="navigation.cardsList">Cards List</a></li>
-                <li><a href="/readings.html" data-i18n="navigation.readings">Readings</a></li>
-                <li><a href="/about.html" data-i18n="navigation.about">About</a></li>
+                <li><a href="${langPrefix}/" data-i18n="navigation.home">Home</a></li>
+                <li><a href="${langPrefix}/cards-list.html" data-i18n="navigation.cardsList">Cards List</a></li>
+                <li><a href="${langPrefix}/readings.html" data-i18n="navigation.readings">Readings</a></li>
+                <li><a href="${langPrefix}/about.html" data-i18n="navigation.about">About</a></li>
               </ul>
             </div>
             <p>Rider-Waite-Smith <span data-i18n="navigation.tarotTitle">Tarot Guide</span> &copy; <script>document.write(new Date().getFullYear())</script></p>
@@ -62,6 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // 初始化语言选择器行为
   initLanguageSelector();
 });
+
+// 从URL路径检测当前语言
+function detectLanguage() {
+  const path = window.location.pathname;
+  if (path.startsWith('/zh/') || path === '/zh') {
+    return 'zh-CN';
+  }
+  return 'en-US';
+}
 
 // 设置活动导航项的函数
 function setActiveNavItem() {

@@ -75,11 +75,151 @@
         </div>
       </section>
       
-      <!-- 其余内容与index.html一致，只需确保所有内部链接都添加/zh前缀 -->
-      <!-- ... -->
-
-      <!-- 继续复制index.html的其余内容 -->
+      <section class="main-section">
+        <h2 class="section-title" data-i18n="homepage.drawCardTitle">抽一张牌获得当下指引</h2>
+        
+        <div class="tarot-area">
+          <div class="mystical-elements">
+            <div class="mystical-element">✧</div>
+            <div class="mystical-element">★</div>
+            <div class="mystical-element">✦</div>
+            <div class="mystical-element">✴</div>
+            <div class="mystical-element">✹</div>
+            <div class="mystical-element">✷</div>
+          </div>
+          <div class="deck-container">
+            <div class="deck" id="tarot-deck">
+              <div class="card">
+                <div class="card-back">
+                  <div class="card-design"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div id="drawn-card-container" class="drawn-card-container hidden">
+              <!-- 抽出的牌会在这里显示 -->
+            </div>
+          </div>
+        </div>
+      </section>
       
+      <section id="control-area" class="control-area">
+        <button id="draw-button" class="draw-button" data-i18n="homepage.drawCardButton">
+          <i class="fas fa-hand-sparkles"></i> 抽一张牌
+        </button>
+      </section>
+      
+      <section id="interpretation-area" class="interpretation-area hidden">
+        <div class="card-info">
+          <h2 id="card-name"></h2>
+          <p id="card-orientation" class="card-orientation"></p>
+        </div>
+        
+        <div class="tabs">
+          <button class="tab-button active" data-tab="story" data-i18n="cardTabs.storyBackground">故事背景</button>
+          <button class="tab-button" data-tab="symbolism" data-i18n="cardTabs.symbolism">象征意义</button>
+          <button class="tab-button" data-tab="love" data-i18n="cardTabs.love">感情解读</button>
+          <button class="tab-button" data-tab="career" data-i18n="cardTabs.career">事业解读</button>
+          <button class="tab-button" data-tab="study" data-i18n="cardTabs.study">学业解读</button>
+          <button class="tab-button" data-tab="overall" data-i18n="cardTabs.overall">整体概括</button>
+        </div>
+        
+        <div class="tab-content">
+          <div id="story" class="tab-pane active">
+            <p id="story-content"></p>
+          </div>
+          <div id="symbolism" class="tab-pane">
+            <p id="symbolism-content"></p>
+          </div>
+          <div id="love" class="tab-pane">
+            <p id="love-content"></p>
+          </div>
+          <div id="career" class="tab-pane">
+            <p id="career-content"></p>
+          </div>
+          <div id="study" class="tab-pane">
+            <p id="study-content"></p>
+          </div>
+          <div id="overall" class="tab-pane">
+            <p id="overall-content"></p>
+          </div>
+        </div>
+        
+        <div class="view-more-card">
+          <p data-i18n="homepage.learnMore">想了解这张牌的更多信息？</p>
+          <a id="view-more-link" href="#" class="view-more-button" data-i18n="homepage.viewDetails">查看详细解说页面</a>
+        </div>
+      </section>
+      
+      <section class="main-section">
+        <h2 class="section-title" data-i18n="categories.exploreTitle">探索塔罗牌世界</h2>
+        
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-card-content">
+              <div class="category-icon">
+                <i class="fas fa-sun"></i>
+              </div>
+              <h3 data-i18n="categories.majorArcana.title">大阿卡那</h3>
+              <p data-i18n="categories.majorArcana.description">22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。</p>
+            </div>
+          </div>
+          
+          <div class="category-card">
+            <div class="category-card-content">
+              <div class="category-icon">
+                <i class="fas fa-fire"></i>
+              </div>
+              <h3 data-i18n="categories.wands.title">权杖牌组</h3>
+              <p data-i18n="categories.wands.description">对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。</p>
+            </div>
+          </div>
+          
+          <div class="category-card">
+            <div class="category-card-content">
+              <div class="category-icon">
+                <i class="fas fa-water"></i>
+              </div>
+              <h3 data-i18n="categories.cups.title">圣杯牌组</h3>
+              <p data-i18n="categories.cups.description">对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。</p>
+            </div>
+          </div>
+          
+          <div class="category-card">
+            <div class="category-card-content">
+              <div class="category-icon">
+                <i class="fas fa-wind"></i>
+              </div>
+              <h3 data-i18n="categories.swords.title">宝剑牌组</h3>
+              <p data-i18n="categories.swords.description">对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。</p>
+            </div>
+          </div>
+          
+          <div class="category-card">
+            <div class="category-card-content">
+              <div class="category-icon">
+                <i class="fas fa-mountain"></i>
+              </div>
+              <h3 data-i18n="categories.pentacles.title">星币牌组</h3>
+              <p data-i18n="categories.pentacles.description">对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。</p>
+            </div>
+          </div>
+          
+          <div class="category-card">
+            <div class="category-card-content">
+              <div class="category-icon">
+                <i class="fas fa-grip-horizontal"></i>
+              </div>
+              <h3 data-i18n="categories.readings.title">牌阵解读</h3>
+              <p data-i18n="categories.readings.description">不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="view-all-container">
+          <a href="/zh/cards-list.html" class="view-all-button" data-i18n="categories.exploreAll">探索完整塔罗牌组</a>
+        </div>
+      </section>
     </main>
   </div>
   
@@ -137,13 +277,13 @@
                 displayCard(data.card, isReversed, data.interpretations);
               } else {
                 console.error('Error fetching card:', data.error);
-                alert('Error drawing card. Please try again.');
+                alert(i18n.t('common.cardDrawingError'));
                 resetCardDrawing();
               }
             })
             .catch(error => {
               console.error('Error:', error);
-              alert('Error drawing card. Please try again.');
+              alert(i18n.t('common.cardDrawingError'));
               resetCardDrawing();
             });
         }, 1000);

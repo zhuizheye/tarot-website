@@ -14,7 +14,15 @@
     "notFound": "Not Found",
     "viewAll": "View All",
     "exploreMore": "Explore More",
-    "viewAllCards": "View All Tarot Cards"
+    "viewAllCards": "View All Tarot Cards",
+    "serverError": "Server error, please try again later",
+    "pageNotFound": "404 - Page Not Found",
+    "pageNotFoundMsg": "The page you are looking for seems to have vanished into the mists of the tarot world. Like The Tower card suggests, sometimes unexpected changes lead us to new discoveries.",
+    "tryAgain": "Try Again",
+    "emailUs": "Email Us",
+    "contactSupport": "Contact Support",
+    "readingError": "Error in reading",
+    "cardDrawingError": "Error drawing card. Please try again."
   },
   "homepage": {
     "heroTitle": "Explore the Mystery and Wisdom of Tarot",
@@ -89,5 +97,151 @@
       "description": "Different tarot spread arrangements can provide more comprehensive guidance, interpreting various questions and situations in life."
     },
     "exploreAll": "Explore Complete Tarot Deck"
+  },
+  "readings": {
+    "title": "Tarot Spreads",
+    "intro": "Spreads are specific arrangement patterns that help readers gain more comprehensive and in-depth guidance through different positions and relationships. Different spreads are suitable for different types of questions and situations. Here are several common tarot spreads that you can choose according to your needs.",
+    "single": {
+      "title": "Single Card Spread",
+      "cardCount": "Uses 1 card",
+      "description": "The simplest spread, suitable for daily guidance or quick answers to simple questions. Draw one card to get direct guidance for the day or a specific question."
+    },
+    "three": {
+      "title": "Three-Card Spread",
+      "cardCount": "Uses 3 cards",
+      "description": "A classic and practical spread that can represent past, present, and future, or the cause of the problem, current situation, and recommended action."
+    },
+    "timeline": {
+      "title": "Timeline Spread",
+      "cardCount": "Uses 5 cards",
+      "description": "An extended timeline spread, including past influences, current situation, hidden factors, upcoming challenges, and final outcome."
+    },
+    "celtic": {
+      "title": "Celtic Cross",
+      "cardCount": "Uses 10 cards",
+      "description": "One of the most famous complex spreads, providing comprehensive analysis including current situation, challenges, foundation, past, future goals, influencing factors, etc."
+    },
+    "relationship": {
+      "title": "Relationship Spread",
+      "cardCount": "Uses 7 cards",
+      "description": "A spread designed specifically for analyzing relationships, exploring the dynamics between two people, shared challenges, communication methods, and relationship potential."
+    },
+    "self": {
+      "title": "Self-Exploration Spread",
+      "cardCount": "Uses 6 cards",
+      "description": "Helps to deeply understand your inner world, including current self-perception, hidden potential, fears, strengths, growth direction, and inner guidance."
+    },
+    "startReading": "Start Reading",
+    "comingSoon": "Coming Soon",
+    "tips": {
+      "title": "Tarot Reading Tips",
+      "tip1": "<strong>Set Clear Questions</strong> - Before starting the reading, clarify the specific question you want guidance on, this helps get more precise answers.",
+      "tip2": "<strong>Keep an Open Mind</strong> - Tarot cards are not predetermined prophecies, but tools for exploring possibilities and gaining insights.",
+      "tip3": "<strong>Trust Your Intuition</strong> - In addition to traditional interpretations, pay attention to your first feeling when seeing the card, which often contains important information.",
+      "tip4": "<strong>Note the Relationships Between Cards</strong> - In multiple card spreads, the connections and interactions between cards can provide deeper insights.",
+      "tip5": "<strong>Record Regularly</strong> - Record your interpretations and actual events, this helps improve your tarot reading ability.",
+      "tip6": "<strong>Respect the Power of Tarot</strong> - View tarot as a tool for self-reflection and growth, not as an absolute answer that decides everything."
+    }
+  },
+  "threeCard": {
+    "title": "Three-Card Spread Reading",
+    "intro": "The three-card spread is a simple yet powerful tarot arrangement that can help you gain deeper insight into a specific question or situation. Before drawing cards, please calmly consider the question you want to answer. You can choose different types of three-card spreads to get guidance from different perspectives.",
+    "spreadTypes": {
+      "past-present-future": "Past-Present-Future",
+      "situation-action-outcome": "Situation-Action-Outcome",
+      "mind-body-spirit": "Mind-Body-Spirit"
+    },
+    "positions": {
+      "past": "Past",
+      "present": "Present",
+      "future": "Future",
+      "situation": "Situation",
+      "action": "Action",
+      "outcome": "Outcome",
+      "mind": "Mind",
+      "body": "Body",
+      "spirit": "Spirit"
+    },
+    "descriptions": {
+      "past": "Represents past influences or factors leading to the current situation.",
+      "present": "Reflects the current situation or challenges you are facing.",
+      "future": "Points to potential future developments or possible outcomes.",
+      "situation": "Describes the nature of the current situation or problem you are facing.",
+      "action": "Suggests actions or methods you can take to address the situation.",
+      "outcome": "Shows the potential result or direction if you follow the suggested action.",
+      "mind": "Reflects your current mental state, beliefs, and psychological factors.",
+      "body": "Represents the material reality, health, and daily life aspects of your situation.",
+      "spirit": "Reveals your spiritual journey, higher goals, and soul-level needs."
+    },
+    "drawButton": "Draw Three Cards",
+    "redrawButton": "Redraw",
+    "readingTitle": "Your Three-Card Spread Reading",
+    "overallMeanings": {
+      "past-present-future": "This three-card spread shows a timeline or progression of events. The first card represents past influences or factors leading to the current situation, the second card reflects the current situation or challenges you face, and the third card points to potential future developments or possible outcomes. Remember, the future is not set in stone, but rather a possible direction based on current energies and actions. By understanding the past and present, you can better influence and shape your future.",
+      "situation-action-outcome": "This three-card spread focuses on the process of resolving a problem. The first card reveals the nature of the current situation or problem, the second card provides possible solutions or coping strategies, and the third card shows the potential outcome if you follow the suggested action. This spread is particularly suitable for seeking practical advice and possible outcomes for specific questions.",
+      "mind-body-spirit": "This three-card spread provides a perspective on your overall life balance. The first card explores your thought world, including ideas, thinking patterns, and mental state; the second card focuses on the material and physical level, such as health, work, and daily habits; the third card delves into your spiritual dimension, exploring spiritual growth and inner goals. Through comprehensive analysis of these three aspects, you can discover potential imbalances in your life and find ways to restore harmony."
+    }
+  },
+  "about": {
+    "title": "About Rider-Waite-Smith Tarot",
+    "history": {
+      "title": "History of RWS Tarot",
+      "p1": "The Rider-Waite-Smith (RWS) Tarot deck was conceived by Arthur Edward Waite, illustrated by Pamela Colman Smith, and first published by the Rider Company in London in 1909.",
+      "p2": "Waite was a mystic and member of the Golden Dawn who commissioned artist Pamela Colman Smith to create a full set of tarot cards with symbolic imagery. What made this deck unique was that unlike earlier tarot decks where only the major arcana cards (22 in total) had detailed imagery, all minor arcana cards (56 in total) in the RWS tarot also contained rich symbolic images.",
+      "p3": "Although historically this deck should be referred to as the 'Waite-Smith' deck based on its creators, the publisher's name 'Rider' was used in the official name, while Smith's contribution was long overlooked. In recent years, more people have started using 'Rider-Waite-Smith' or simply 'RWS' to acknowledge Pamela Colman Smith's important contribution as the artist."
+    },
+    "structure": {
+      "title": "Structure of Tarot",
+      "p1": "The RWS tarot consists of 78 cards, divided into two main parts:",
+      "majorTitle": "Major Arcana (Major Arcana)",
+      "majorDesc": "The Major Arcana contains 22 cards, from The Fool (0) to The World (21). These cards represent major themes in life and the spiritual journey, usually seen as reflecting important turning points and inner growth in life. Each Major Arcana card has its unique symbolic meaning and story.",
+      "minorTitle": "Minor Arcana (Minor Arcana)",
+      "minorDesc": "The Minor Arcana contains 56 cards, divided into four suits:",
+      "wands": "<strong>Wands</strong>: Related to creativity, passion, action, and spiritual energy, corresponding to the element of Fire.",
+      "cups": "<strong>Cups</strong>: Related to emotions, relationships, love, and intuition, corresponding to the element of Water.",
+      "swords": "<strong>Swords</strong>: Related to thoughts, challenges, conflicts, and communication, corresponding to the element of Air.",
+      "pentacles": "<strong>Pentacles</strong>: Related to the material world, wealth, body, and practical matters, corresponding to the element of Earth.",
+      "minorDesc2": "Each suit contains ten numbered cards (from Ace to 10) and four court cards (Page, Knight, Queen, and King)."
+    },
+    "symbolism": {
+      "title": "Symbolic Meaning of RWS Tarot",
+      "p1": "The imagery of RWS tarot is full of symbolic meanings, including elements from various cultural, religious, and mystical traditions. Waite incorporated Hermeticism, Kabbalah, astrology, and Christian symbolism into the card designs.",
+      "p2": "Each card can be interpreted through multiple levels:",
+      "literal": "<strong>Literal Meaning</strong>: The actual scene and characters depicted on the card.",
+      "symbolic": "<strong>Symbolic Meaning</strong>: The deeper meanings represented by various elements in the image.",
+      "numerical": "<strong>Numerical Symbolism</strong>: The meaning contained in the card's number or numeral.",
+      "elemental": "<strong>Elemental Association</strong>: The connection with the four elements (Fire, Water, Air, Earth).",
+      "astrological": "<strong>Astrological Association</strong>: The correspondence with zodiac signs and planets.",
+      "p3": "These multi-layered meanings make RWS tarot a powerful tool for self-exploration and psychological analysis."
+    },
+    "usage": {
+      "title": "Using Tarot",
+      "p1": "Tarot cards can be used for multiple purposes:",
+      "divination": "<strong>Divination</strong>: Interpreting the cards to gain insight into current situations and future possibilities.",
+      "meditation": "<strong>Meditation</strong>: Using the card face as a meditation focus to explore its symbolic meaning and personal resonance.",
+      "reflection": "<strong>Self-reflection</strong>: Using the card face to guide self-exploration and psychological analysis.",
+      "storytelling": "<strong>Storytelling</strong>: Using the card face as a creative inspiration and storytelling tool.",
+      "psychological": "<strong>Psychological Tool</strong>: As a projection technique to help express thoughts and feelings that are difficult to articulate directly.",
+      "p2": "It's important to understand that tarot cards are not magical tools for predicting fate, but ways to help us connect with intuition, explore the subconscious, and gain new perspectives."
+    },
+    "website": {
+      "title": "About This Website",
+      "p1": "The RWS Tarot Guide website is dedicated to providing comprehensive and easy-to-understand information about the Rider-Waite-Smith tarot. Our goals are:",
+      "goal1": "To provide detailed interpretations for each tarot card, including its symbolic meaning, historical background, and practical application.",
+      "goal2": "To create a user-friendly environment that helps beginners and experienced readers explore the depth of tarot cards.",
+      "goal3": "To provide interactive features, such as random card drawing, to promote practical learning and self-reflection.",
+      "goal4": "To respect tarot traditions while presenting content in a modern, psychologically-oriented way.",
+      "p2": "We hope this website can be a valuable resource for you to explore the rich world of tarot. Whether you are curious, seeking personal growth, or want to delve deeper into the symbolic system of tarot, we hope to provide support and inspiration."
+    }
+  },
+  "error404": {
+    "title": "404 - Page Not Found",
+    "message": "It seems the page you are looking for has been lost in the mists of the tarot world. Like The Tower card suggests, sometimes unexpected changes lead us to new discoveries.",
+    "home": "Return to Home",
+    "cards": "Browse Tarot Cards",
+    "readings": "Experience Tarot Spreads",
+    "tarotGuidance": "Tarot Guidance",
+    "towerMsg1": "The Tower card (The Tower) represents sudden changes and revelations. Although it is often viewed as a challenging card, it also symbolizes an opportunity to clear out old structures to allow new things to grow.",
+    "towerMsg2": "Just like encountering this 404 page, unexpected paths can sometimes lead us to discover new possibilities. We invite you to explore other content on our website, you may find more valuable information than you originally sought."
   }
 } 

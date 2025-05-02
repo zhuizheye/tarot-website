@@ -5,6 +5,7 @@ const i18n = {
   supportedLanguages: ['en-US', 'zh-CN'],
   translations: {},
   isInitialized: false,
+  safeHtmlMode: true,  // 安全模式下会转义HTML
 
   // 从当前URL路径确定语言
   detectLanguageFromPath: function() {
@@ -57,7 +58,7 @@ const i18n = {
   },
   
   // 获取翻译内容
-  t: function(key) {
+  t: function(key, params = {}) {
     const keys = key.split('.');
     let result = this.translations;
     
@@ -70,7 +71,32 @@ const i18n = {
       }
     }
     
+    // 如果结果是字符串，处理参数替换
+    if (typeof result === 'string') {
+      // 替换参数，格式为 {{paramName}}
+      result = this.replaceParams(result, params);
+      
+      // 如果处于安全模式且不是HTML内容，则转义HTML
+      if (this.safeHtmlMode && !key.endsWith('.html')) {
+        result = this.escapeHTML(result);
+      }
+    }
+    
     return result;
+  },
+  
+  // 替换翻译文本中的参数
+  replaceParams: function(text, params) {
+    return text.replace(/\{\{(\w+)\}\}/g, (match, paramName) => {
+      return params[paramName] !== undefined ? params[paramName] : match;
+    });
+  },
+  
+  // 转义HTML特殊字符
+  escapeHTML: function(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
   },
   
   // 切换语言 - 基于URL
@@ -128,20 +154,65 @@ const i18n = {
   
   // 更新页面内容的语言
   updatePageLanguage: function() {
+    // 处理data-i18n属性的元素 - 文本内容
     document.querySelectorAll('[data-i18n]').forEach(element => {
       const key = element.getAttribute('data-i18n');
-      element.textContent = this.t(key);
+      const params = this.getParamsFromElement(element);
+      element.innerHTML = this.t(key, params);
     });
     
+    // 处理data-i18n-html属性的元素 - HTML内容
+    document.querySelectorAll('[data-i18n-html]').forEach(element => {
+      const key = element.getAttribute('data-i18n-html');
+      const params = this.getParamsFromElement(element);
+      // 使用.html结尾的键名表示这是HTML内容
+      element.innerHTML = this.t(`${key}.html`, params);
+    });
+    
+    // 处理data-i18n-placeholder属性的元素
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
       const key = element.getAttribute('data-i18n-placeholder');
-      element.placeholder = this.t(key);
+      const params = this.getParamsFromElement(element);
+      element.placeholder = this.t(key, params);
     });
     
+    // 处理data-i18n-title属性的元素
     document.querySelectorAll('[data-i18n-title]').forEach(element => {
       const key = element.getAttribute('data-i18n-title');
-      element.title = this.t(key);
+      const params = this.getParamsFromElement(element);
+      element.title = this.t(key, params);
     });
+    
+    // 处理data-i18n-value属性的元素
+    document.querySelectorAll('[data-i18n-value]').forEach(element => {
+      const key = element.getAttribute('data-i18n-value');
+      const params = this.getParamsFromElement(element);
+      element.value = this.t(key, params);
+    });
+    
+    // 处理data-i18n-alt属性的元素（图片alt文本）
+    document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+      const key = element.getAttribute('data-i18n-alt');
+      const params = this.getParamsFromElement(element);
+      element.alt = this.t(key, params);
+    });
+  },
+  
+  // 从元素中提取参数
+  getParamsFromElement: function(element) {
+    const params = {};
+    
+    // 获取所有data-i18n-param-*属性
+    const attributes = element.attributes;
+    for (let i = 0; i < attributes.length; i++) {
+      const attr = attributes[i];
+      if (attr.name.startsWith('data-i18n-param-')) {
+        const paramName = attr.name.substring('data-i18n-param-'.length);
+        params[paramName] = attr.value;
+      }
+    }
+    
+    return params;
   },
   
   // 更新语言选择器UI
