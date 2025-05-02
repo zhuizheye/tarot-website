@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RWS 塔罗牌解说 | 专业的塔罗牌解读与指引</title>
-  <meta name="description" content="提供78张Rider-Waite-Smith塔罗牌的详细解读，包括牌意、象征、逆位解释，以及各种牌阵解读。">
+  <title>RWS Tarot Guide | Professional Tarot Reading and Guidance</title>
+  <!-- 自动语言重定向脚本 -->
+  <script src="/js/redirect.js"></script>
+  <!-- 国际化脚本会根据路径设置正确的语言 -->
+  <script src="/js/i18n.js"></script>
+  <meta name="description" content="Detailed interpretation of 78 Rider-Waite-Smith tarot cards, including card meanings, symbolism, reversed interpretations, and various spread readings.">
   <link rel="canonical" href="/">
-  <meta property="og:title" content="RWS 塔罗牌解说 | 专业的塔罗牌解读与指引">
-  <meta property="og:description" content="提供78张Rider-Waite-Smith塔罗牌的详细解读，包括牌意、象征、逆位解释，以及各种牌阵解读。">
+  <meta property="og:title" content="RWS Tarot Guide | Professional Tarot Reading and Guidance">
+  <meta property="og:description" content="Detailed interpretation of 78 Rider-Waite-Smith tarot cards, including card meanings, symbolism, reversed interpretations, and various spread readings.">
   <meta property="og:url" content="/">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +19,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <script src="/js/i18n.js"></script>
   <script src="/js/components.js"></script>
   
   <!-- 结构化数据 -->
@@ -271,30 +274,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize the card drawing functionality
       initCardDrawing();
-      
-      // Add language-aware link handling
-      handleLanguageLinks();
     });
-    
-    function handleLanguageLinks() {
-      // Add event listeners to all language-aware links
-      document.querySelectorAll('.lang-aware-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          const currentLang = i18n ? i18n.currentLanguage : 'zh-CN';
-          let targetUrl = this.getAttribute('href');
-          
-          // Add language prefix if not default language
-          if (currentLang && currentLang !== i18n.defaultLanguage) {
-            const langCode = currentLang.split('-')[0];
-            targetUrl = `/${langCode}${targetUrl}`;
-          }
-          
-          window.location.href = targetUrl;
-        });
-      });
-    }
     
     function initCardDrawing() {
       const drawButton = document.getElementById('draw-button');

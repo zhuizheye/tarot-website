@@ -1,0 +1,88 @@
+<header class="outer-header" data-dynamic-i18n data-component-type="header">
+  <div class="app-container">
+    <header>
+      <h1><a href="/" title="返回首页" data-i18n-title="navigation.returnHome"><i class="fas fa-moon"></i> RWS <span data-i18n="navigation.tarotTitle">塔罗牌解说</span> <i class="fas fa-sun"></i></a></h1>
+      <div style="display: flex; align-items: center;">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/" id="nav-home" data-i18n="navigation.home">首页</a></li>
+            <li><a href="/cards-list.html" id="nav-cards" data-i18n="navigation.cardsList">塔罗牌列表</a></li>
+            <li><a href="/readings.html" id="nav-readings" data-i18n="navigation.readings">牌阵解读</a></li>
+            <li><a href="/about.html" id="nav-about" data-i18n="navigation.about">关于我们</a></li>
+          </ul>
+        </nav>
+        <div class="language-selector-container">
+          <label for="language-selector" data-i18n="navigation.language">语言</label>
+          <select id="language-selector" class="language-selector">
+            <option value="zh-CN">中文</option>
+            <option value="en-US">English</option>
+          </select>
+        </div>
+      </div>
+    </header>
+  </div>
+</header>
+
+<script>
+  // Set active navigation state based on current page
+  function setActiveNavItem() {
+    const currentPath = window.location.pathname;
+    
+    // Reset active state
+    document.querySelectorAll('.nav-list a').forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    // Set active based on path
+    if (currentPath === '/' || currentPath.match(/^\/(index\.html)?$/)) {
+      document.getElementById('nav-home')?.classList.add('active');
+    } else if (currentPath.match(/^\/cards/) || currentPath.includes('cards-list.html')) {
+      document.getElementById('nav-cards')?.classList.add('active');
+    } else if (currentPath.includes('readings.html') || currentPath.match(/^\/readings/)) {
+      document.getElementById('nav-readings')?.classList.add('active');
+    } else if (currentPath.includes('about.html') || currentPath.match(/^\/about/)) {
+      document.getElementById('nav-about')?.classList.add('active');
+    }
+  }
+  
+  // Call immediately
+  setActiveNavItem();
+  
+  // 调试检查全局i18n对象
+  console.log('Header loaded, checking i18n:', window.i18n ? 'available' : 'not available');
+  
+  // 启动初始化语言选择器
+  (function() {
+    const languageSelector = document.getElementById('language-selector');
+    if (!languageSelector) {
+      console.error('Language selector not found in header');
+      return;
+    }
+    
+    console.log('Header language selector found');
+    
+    // 检查是否已初始化过
+    if (languageSelector.getAttribute('data-initialized') === 'true') {
+      console.log('Header language selector already initialized, skipping');
+      return;
+    }
+    
+    // 设置当前语言
+    if (window.i18n && window.i18n.currentLanguage) {
+      console.log('Setting header selector from i18n.currentLanguage:', window.i18n.currentLanguage);
+      languageSelector.value = window.i18n.currentLanguage;
+    } else {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang) {
+        console.log('Setting header selector from localStorage:', savedLang);
+        languageSelector.value = savedLang;
+      } else {
+        console.log('No language preference found, using default');
+      }
+    }
+    
+    // 标记为已初始化
+    languageSelector.setAttribute('data-initialized', 'true');
+    console.log('Header language selector initialized');
+  })();
+</script> 
