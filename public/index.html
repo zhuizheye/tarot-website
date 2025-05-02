@@ -15,6 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="/js/i18n.js"></script>
+  <script src="/js/components.js"></script>
   
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -31,27 +33,38 @@
     "description": "专业的Rider-Waite-Smith塔罗牌解读网站，提供78张塔罗牌的详细解读与指引。"
   }
   </script>
+  
+  <style>
+    /* Language selector styles */
+    .language-selector-container {
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .language-selector-container label {
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+    .language-selector {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <!-- Header Component -->
+  <div id="header-component"></div>
+  
   <div class="app-container">
-    <header>
-      <h1><i class="fas fa-moon"></i> RWS 塔罗牌解说</h1>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="/" class="active">首页</a></li>
-          <li><a href="/cards-list.html">塔罗牌列表</a></li>
-          <li><a href="/readings.html">牌阵解读</a></li>
-          <li><a href="/about.html">关于我们</a></li>
-        </ul>
-      </nav>
-    </header>
-    
     <main>
       <section class="hero-banner">
         <div class="hero-content">
-          <h2 class="hero-title">探索塔罗的奥秘与智慧</h2>
-          <p class="hero-description">Rider-Waite-Smith塔罗牌是最经典、最受欢迎的塔罗牌体系。通过我们的专业解读，了解每张牌背后的象征意义和启示，获得对生活的指引。</p>
-          <a href="/cards-list.html" class="hero-button">探索全部塔罗牌</a>
+          <h2 class="hero-title" data-i18n="homepage.heroTitle">探索塔罗的奥秘与智慧</h2>
+          <p class="hero-description" data-i18n="homepage.heroDescription">Rider-Waite-Smith塔罗牌是最经典、最受欢迎的塔罗牌体系。通过我们的专业解读，了解每张牌背后的象征意义和启示，获得对生活的指引。</p>
+          <a href="/cards-list.html" class="hero-button" data-i18n="homepage.exploreAllCards">探索全部塔罗牌</a>
         </div>
         <div class="hero-icons">
           <div class="hero-icon floating"><i class="fas fa-sun"></i></div>
@@ -62,7 +75,7 @@
       </section>
       
       <section class="main-section">
-        <h2 class="section-title">抽一张牌获得当下指引</h2>
+        <h2 class="section-title" data-i18n="homepage.drawCardTitle">抽一张牌获得当下指引</h2>
         
         <div class="tarot-area">
           <div class="mystical-elements">
@@ -90,7 +103,7 @@
       </section>
       
       <section id="control-area" class="control-area">
-        <button id="draw-button" class="draw-button">
+        <button id="draw-button" class="draw-button" data-i18n="homepage.drawCardButton">
           <i class="fas fa-hand-sparkles"></i> 抽一张牌
         </button>
       </section>
@@ -102,12 +115,12 @@
         </div>
         
         <div class="tabs">
-          <button class="tab-button active" data-tab="story">故事背景</button>
-          <button class="tab-button" data-tab="symbolism">象征意义</button>
-          <button class="tab-button" data-tab="love">感情解读</button>
-          <button class="tab-button" data-tab="career">事业解读</button>
-          <button class="tab-button" data-tab="study">学业解读</button>
-          <button class="tab-button" data-tab="overall">整体概括</button>
+          <button class="tab-button active" data-tab="story" data-i18n="cardTabs.storyBackground">故事背景</button>
+          <button class="tab-button" data-tab="symbolism" data-i18n="cardTabs.symbolism">象征意义</button>
+          <button class="tab-button" data-tab="love" data-i18n="cardTabs.love">感情解读</button>
+          <button class="tab-button" data-tab="career" data-i18n="cardTabs.career">事业解读</button>
+          <button class="tab-button" data-tab="study" data-i18n="cardTabs.study">学业解读</button>
+          <button class="tab-button" data-tab="overall" data-i18n="cardTabs.overall">整体概括</button>
         </div>
         
         <div class="tab-content">
@@ -132,13 +145,13 @@
         </div>
         
         <div class="view-more-card">
-          <p>想了解这张牌的更多信息？</p>
-          <a id="view-more-link" href="#" class="view-more-button">查看详细解说页面</a>
+          <p data-i18n="homepage.learnMore">想了解这张牌的更多信息？</p>
+          <a id="view-more-link" href="#" class="view-more-button" data-i18n="homepage.viewDetails">查看详细解说页面</a>
         </div>
       </section>
       
       <section class="main-section">
-        <h2 class="section-title">探索塔罗牌世界</h2>
+        <h2 class="section-title" data-i18n="categories.exploreTitle">探索塔罗牌世界</h2>
         
         <div class="categories-grid">
           <div class="category-card">
@@ -146,8 +159,8 @@
               <div class="category-icon">
                 <i class="fas fa-sun"></i>
               </div>
-              <h3>大阿卡那</h3>
-              <p>22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。</p>
+              <h3 data-i18n="categories.majorArcana.title">大阿卡那</h3>
+              <p data-i18n="categories.majorArcana.description">22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。</p>
             </div>
           </div>
           
@@ -156,8 +169,8 @@
               <div class="category-icon">
                 <i class="fas fa-fire"></i>
               </div>
-              <h3>权杖牌组</h3>
-              <p>对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。</p>
+              <h3 data-i18n="categories.wands.title">权杖牌组</h3>
+              <p data-i18n="categories.wands.description">对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。</p>
             </div>
           </div>
           
@@ -166,8 +179,8 @@
               <div class="category-icon">
                 <i class="fas fa-water"></i>
               </div>
-              <h3>圣杯牌组</h3>
-              <p>对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。</p>
+              <h3 data-i18n="categories.cups.title">圣杯牌组</h3>
+              <p data-i18n="categories.cups.description">对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。</p>
             </div>
           </div>
           
@@ -176,8 +189,8 @@
               <div class="category-icon">
                 <i class="fas fa-wind"></i>
               </div>
-              <h3>宝剑牌组</h3>
-              <p>对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。</p>
+              <h3 data-i18n="categories.swords.title">宝剑牌组</h3>
+              <p data-i18n="categories.swords.description">对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。</p>
             </div>
           </div>
           
@@ -186,8 +199,8 @@
               <div class="category-icon">
                 <i class="fas fa-mountain"></i>
               </div>
-              <h3>星币牌组</h3>
-              <p>对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。</p>
+              <h3 data-i18n="categories.pentacles.title">星币牌组</h3>
+              <p data-i18n="categories.pentacles.description">对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。</p>
             </div>
           </div>
           
@@ -197,134 +210,205 @@
                 <div class="category-icon">
                   <i class="fas fa-book-open"></i>
                 </div>
-                <h3>牌阵解读</h3>
-                <p>不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。</p>
+                <h3 data-i18n="categories.readings.title">牌阵解读</h3>
+                <p data-i18n="categories.readings.description">不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。</p>
               </div>
             </a>
           </div>
         </div>
         
         <div class="view-all" style="text-align: center; margin-top: 30px;">
-          <a href="/cards-list.html" class="explore-all-button">探索完整塔罗牌组 <i class="fas fa-chevron-right"></i></a>
+          <a href="/cards-list.html" class="explore-all-button" data-i18n="categories.exploreAll">探索完整塔罗牌组 <i class="fas fa-chevron-right"></i></a>
         </div>
       </section>
       
       <section class="main-section">
-        <h2 class="section-title">热门塔罗牌</h2>
+        <h2 class="section-title" data-i18n="homepage.popularCards">热门塔罗牌</h2>
         <div class="popular-cards">
           <div class="card-item">
-            <a href="/cards/the-fool">
+            <a href="/cards/the-fool" class="lang-aware-link">
               <img src="/images/tarot/optimized/00_The_Fool.jpg" alt="愚者">
               <h3>愚者 <span class="card-english-name">The Fool</span></h3>
             </a>
           </div>
           <div class="card-item">
-            <a href="/cards/the-magician">
+            <a href="/cards/the-magician" class="lang-aware-link">
               <img src="/images/tarot/optimized/01_The_Magician.jpg" alt="魔术师">
               <h3>魔术师 <span class="card-english-name">The Magician</span></h3>
             </a>
           </div>
           <div class="card-item">
-            <a href="/cards/the-high-priestess">
+            <a href="/cards/the-high-priestess" class="lang-aware-link">
               <img src="/images/tarot/optimized/02_The_High_Priestess.jpg" alt="女祭司">
               <h3>女祭司 <span class="card-english-name">The High Priestess</span></h3>
             </a>
           </div>
           <div class="card-item">
-            <a href="/cards/the-empress">
+            <a href="/cards/the-empress" class="lang-aware-link">
               <img src="/images/tarot/optimized/03_The_Empress.jpg" alt="女皇">
               <h3>女皇 <span class="card-english-name">The Empress</span></h3>
             </a>
           </div>
           <div class="card-item">
-            <a href="/cards/the-emperor">
+            <a href="/cards/the-emperor" class="lang-aware-link">
               <img src="/images/tarot/optimized/04_The_Emperor.jpg" alt="皇帝">
               <h3>皇帝 <span class="card-english-name">The Emperor</span></h3>
             </a>
           </div>
         </div>
         <div class="view-all" style="text-align: center; margin-top: 30px;">
-          <a href="/cards-list.html" class="explore-all-button">查看所有塔罗牌 <i class="fas fa-chevron-right"></i></a>
+          <a href="/cards-list.html" class="explore-all-button" data-i18n="common.viewAllCards">查看所有塔罗牌 <i class="fas fa-chevron-right"></i></a>
         </div>
       </section>
     </main>
-    
-    <footer>
-      <div class="footer-nav">
-        <ul>
-          <li><a href="/">首页</a></li>
-          <li><a href="/cards-list.html">塔罗牌列表</a></li>
-          <li><a href="/readings.html">牌阵解读</a></li>
-          <li><a href="/about.html">关于我们</a></li>
-        </ul>
-      </div>
-      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <span id="current-year"></span></p>
-      <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
-    </footer>
   </div>
+  
+  <!-- Footer Component -->
+  <div id="footer-component"></div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // 初始化 GSAP 动画
-      gsap.from('.hero-banner', {duration: 1, y: 20, opacity: 0, ease: 'power3.out'});
-      gsap.from('.hero-icon', {
-        duration: 2, 
-        opacity: 0, 
-        y: -10, 
-        stagger: 0.2, 
-        ease: 'power3.out',
-        delay: 0.5
-      });
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize the card drawing functionality
+      initCardDrawing();
       
-      // 设置所有卡片初始状态
-      gsap.set('.category-card', {opacity: 0, y: 10});
-      
-      // 动画效果改为to而非from，减小动画幅度，防止对齐问题
-      gsap.to('.category-card', {
-        scrollTrigger: {
-          trigger: '.categories-grid',
-          start: 'top 90%'
-        },
-        duration: 0.5,
-        y: 0,
-        opacity: 1,
-        ease: 'power2.out',
-        stagger: 0.05
-      });
-      
-      // 添加神秘元素的动画
-      const mysticalElements = document.querySelectorAll('.mystical-element');
-      gsap.to(mysticalElements, {
-        opacity: 0.7,
-        stagger: 0.2,
-        duration: 1,
-        ease: 'power2.out'
-      });
-      
-      // 当用户悬停在卡片上时，增强神秘元素的亮度
-      const tarotDeck = document.getElementById('tarot-deck');
-      tarotDeck.addEventListener('mouseenter', function() {
-        gsap.to(mysticalElements, {
-          opacity: 1,
-          scale: 1.2,
-          color: 'rgba(212, 175, 55, 0.5)',
-          duration: 0.5,
-          stagger: 0.1
-        });
-      });
-      
-      tarotDeck.addEventListener('mouseleave', function() {
-        gsap.to(mysticalElements, {
-          opacity: 0.7,
-          scale: 1,
-          color: 'rgba(212, 175, 55, 0.2)',
-          duration: 0.5,
-          stagger: 0.1
-        });
-      });
+      // Add language-aware link handling
+      handleLanguageLinks();
     });
+    
+    function handleLanguageLinks() {
+      // Add event listeners to all language-aware links
+      document.querySelectorAll('.lang-aware-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const currentLang = i18n ? i18n.currentLanguage : 'zh-CN';
+          let targetUrl = this.getAttribute('href');
+          
+          // Add language prefix if not default language
+          if (currentLang && currentLang !== i18n.defaultLanguage) {
+            const langCode = currentLang.split('-')[0];
+            targetUrl = `/${langCode}${targetUrl}`;
+          }
+          
+          window.location.href = targetUrl;
+        });
+      });
+    }
+    
+    function initCardDrawing() {
+      const drawButton = document.getElementById('draw-button');
+      const tarotDeck = document.getElementById('tarot-deck');
+      const drawnCardContainer = document.getElementById('drawn-card-container');
+      const interpretationArea = document.getElementById('interpretation-area');
+      
+      // Add event listeners
+      drawButton.addEventListener('click', drawCard);
+      
+      // Tab switching
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all tabs
+          document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          button.classList.add('active');
+          const tabId = button.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+      
+      function drawCard() {
+        // Hide the button while drawing
+        drawButton.disabled = true;
+        
+        // Create the drawn card animation
+        tarotDeck.classList.add('drawing');
+        drawnCardContainer.classList.remove('hidden');
+        
+        // Generate a random card
+        setTimeout(() => {
+          const cardId = Math.floor(Math.random() * 78); // 0-77
+          const isReversed = Math.random() > 0.5;
+          
+          // Fetch card data
+          fetch(`/api/cards/id/${cardId}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                displayCard(data.card, isReversed, data.interpretations);
+              } else {
+                console.error('Error fetching card:', data.error);
+                alert('Error drawing card. Please try again.');
+                resetCardDrawing();
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Error drawing card. Please try again.');
+              resetCardDrawing();
+            });
+        }, 1000);
+      }
+      
+      function displayCard(card, isReversed, interpretations) {
+        // Create card HTML
+        const cardImage = document.createElement('img');
+        cardImage.src = `/images/tarot/optimized/${card.image_filename}`;
+        cardImage.alt = card.name;
+        cardImage.className = isReversed ? 'card-image reversed' : 'card-image';
+        
+        // Clear and add the card to the container
+        drawnCardContainer.innerHTML = '';
+        drawnCardContainer.appendChild(cardImage);
+        
+        // Update card info
+        document.getElementById('card-name').textContent = `${card.name} (${card.english_name})`;
+        
+        // Set orientation text based on current language
+        const orientationKey = isReversed ? 'homepage.cardOrientation.reversed' : 'homepage.cardOrientation.upright';
+        document.getElementById('card-orientation').textContent = i18n.t(orientationKey);
+        
+        // Update interpretation content
+        const interpretation = isReversed ? interpretations.reversed : interpretations.upright;
+        document.getElementById('story-content').textContent = interpretation.story_background;
+        document.getElementById('symbolism-content').textContent = interpretation.symbolism;
+        document.getElementById('love-content').textContent = interpretation.love;
+        document.getElementById('career-content').textContent = interpretation.career;
+        document.getElementById('study-content').textContent = interpretation.study;
+        document.getElementById('overall-content').textContent = interpretation.overall;
+        
+        // Update view more link
+        const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+        const currentLang = i18n ? i18n.currentLanguage : 'zh-CN';
+        let detailUrl = `/cards/${cardSlug}`;
+        
+        // Add language prefix if not default
+        if (currentLang && currentLang !== i18n.defaultLanguage) {
+          const langCode = currentLang.split('-')[0];
+          detailUrl = `/${langCode}${detailUrl}`;
+        }
+        
+        document.getElementById('view-more-link').href = detailUrl;
+        
+        // Show interpretation
+        interpretationArea.classList.remove('hidden');
+        
+        // Reset draw button
+        setTimeout(() => {
+          tarotDeck.classList.remove('drawing');
+          drawButton.disabled = false;
+        }, 1000);
+      }
+      
+      function resetCardDrawing() {
+        tarotDeck.classList.remove('drawing');
+        drawnCardContainer.classList.add('hidden');
+        drawButton.disabled = false;
+        interpretationArea.classList.add('hidden');
+      }
+    }
   </script>
-  <script src="js/app.js"></script>
 </body>
 </html> 

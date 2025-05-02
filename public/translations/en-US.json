@@ -1,0 +1,93 @@
+{
+  "navigation": {
+    "home": "Home",
+    "cardsList": "Tarot Cards",
+    "readings": "Readings",
+    "about": "About Us",
+    "language": "Language",
+    "tarotTitle": "Tarot Guide",
+    "returnHome": "Return to Home"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "notFound": "Not Found",
+    "viewAll": "View All",
+    "exploreMore": "Explore More",
+    "viewAllCards": "View All Tarot Cards"
+  },
+  "homepage": {
+    "heroTitle": "Explore the Mystery and Wisdom of Tarot",
+    "heroDescription": "The Rider-Waite-Smith tarot deck is the most classic and popular tarot system. Discover the symbolic meanings and insights behind each card through our professional interpretations, and gain guidance for your life.",
+    "exploreAllCards": "Explore All Tarot Cards",
+    "drawCardTitle": "Draw a Card for Current Guidance",
+    "drawCardButton": "Draw a Card",
+    "cardOrientation": {
+      "upright": "Upright",
+      "reversed": "Reversed"
+    },
+    "learnMore": "Want to learn more about this card?",
+    "viewDetails": "View Detailed Interpretation",
+    "popularCards": "Popular Tarot Cards"
+  },
+  "cardTabs": {
+    "storyBackground": "Story Background",
+    "symbolism": "Symbolism",
+    "love": "Love Reading",
+    "career": "Career Reading",
+    "study": "Study Reading",
+    "overall": "Overall Summary"
+  },
+  "cardDetail": {
+    "basicInfo": "Basic Information",
+    "chineseName": "Chinese Name",
+    "englishName": "English Name",
+    "number": "Number",
+    "category": "Category",
+    "suit": "Suit",
+    "element": "Element",
+    "astrology": "Astrology",
+    "numerology": "Numerology",
+    "interpretation": "Card Interpretation",
+    "uprightReading": "Upright Reading",
+    "reversedReading": "Reversed Reading",
+    "storyBackground": "Story Background",
+    "symbolism": "Symbolism",
+    "loveReading": "Love Reading",
+    "careerReading": "Career Reading",
+    "studyReading": "Study Reading",
+    "overallSummary": "Overall Summary",
+    "relatedCards": "Related Cards",
+    "notFoundDescription": "Sorry, we couldn't find the tarot card you requested.",
+    "loadingRelated": "Looking for related card associations...",
+    "noRelatedCards": "No related cards found"
+  },
+  "categories": {
+    "exploreTitle": "Explore Tarot World",
+    "majorArcana": {
+      "title": "Major Arcana",
+      "description": "The 22 Major Arcana cards represent significant themes and turning points in life's journey, symbolizing key stages of spiritual growth."
+    },
+    "wands": {
+      "title": "Wands",
+      "description": "Corresponding to the element of Fire, representing creativity, passion, action, and spiritual energy, related to career and personal pursuits."
+    },
+    "cups": {
+      "title": "Cups",
+      "description": "Corresponding to the element of Water, representing emotions, relationships, love, and intuition, exploring emotional experiences and interpersonal relationships."
+    },
+    "swords": {
+      "title": "Swords",
+      "description": "Corresponding to the element of Air, representing thoughts, challenges, conflicts, and communication, focusing on rational thinking and decision-making processes."
+    },
+    "pentacles": {
+      "title": "Pentacles",
+      "description": "Corresponding to the element of Earth, representing the material world, wealth, body, and practical matters, related to material security."
+    },
+    "readings": {
+      "title": "Tarot Spreads",
+      "description": "Different tarot spread arrangements can provide more comprehensive guidance, interpreting various questions and situations in life."
+    },
+    "exploreAll": "Explore Complete Tarot Deck"
+  }
+} 

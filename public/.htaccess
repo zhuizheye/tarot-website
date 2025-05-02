@@ -1,0 +1,38 @@
+RewriteEngine On
+
+# Language directory handling
+# If language code is in URL, pass it through
+RewriteRule ^(en|zh)/(.*)$ /$2 [QSA,L,E=LANGUAGE:$1]
+
+# Set language cookie if language is set in URL
+RewriteCond %{ENV:LANGUAGE} !^$
+RewriteRule ^ - [CO=preferredLanguage:%{ENV:LANGUAGE}:example.com]
+
+# Default API requests to pass through without language redirects
+RewriteRule ^api/ - [L]
+
+# For all files that actually exist, serve them directly
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# For directories that exist, serve them directly
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# If specific language wasn't requested and we're not at homepage,
+# but we have a language cookie, redirect to the language version
+RewriteCond %{REQUEST_URI} !^/(en|zh)/
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{HTTP_COOKIE} preferredLanguage=([^;]+)
+RewriteRule ^(.*)$ /%1/$1 [R=302,L]
+
+# Default handling for browser language detection
+# Check if browser language contains "en" or "zh" and redirect accordingly
+RewriteCond %{REQUEST_URI} !^/(en|zh)/
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{HTTP:Accept-Language} ^(en|zh) [NC]
+RewriteRule ^(.*)$ /%1/$1 [R=302,L]
+
+# This ensures all other requests still work by passing them to the correct file
+RewriteRule ^(en|zh)/(.*\.html)$ /$2 [L]
+RewriteRule ^(en|zh)/cards/(.*)$ /cards/$2 [L] 

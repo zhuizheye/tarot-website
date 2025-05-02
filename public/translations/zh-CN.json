@@ -1,0 +1,93 @@
+{
+  "navigation": {
+    "home": "首页",
+    "cardsList": "塔罗牌列表",
+    "readings": "牌阵解读",
+    "about": "关于我们",
+    "language": "语言",
+    "tarotTitle": "塔罗牌解说",
+    "returnHome": "返回首页"
+  },
+  "common": {
+    "loading": "正在加载...",
+    "error": "发生错误",
+    "notFound": "未找到",
+    "viewAll": "查看全部",
+    "exploreMore": "探索更多",
+    "viewAllCards": "查看所有塔罗牌"
+  },
+  "homepage": {
+    "heroTitle": "探索塔罗的奥秘与智慧",
+    "heroDescription": "Rider-Waite-Smith塔罗牌是最经典、最受欢迎的塔罗牌体系。通过我们的专业解读，了解每张牌背后的象征意义和启示，获得对生活的指引。",
+    "exploreAllCards": "探索全部塔罗牌",
+    "drawCardTitle": "抽一张牌获得当下指引",
+    "drawCardButton": "抽一张牌",
+    "cardOrientation": {
+      "upright": "正位",
+      "reversed": "逆位"
+    },
+    "learnMore": "想了解这张牌的更多信息？",
+    "viewDetails": "查看详细解说页面",
+    "popularCards": "热门塔罗牌"
+  },
+  "cardTabs": {
+    "storyBackground": "故事背景",
+    "symbolism": "象征意义",
+    "love": "感情解读",
+    "career": "事业解读",
+    "study": "学业解读",
+    "overall": "整体概括"
+  },
+  "cardDetail": {
+    "basicInfo": "基本资料",
+    "chineseName": "中文名称",
+    "englishName": "英文名称",
+    "number": "编号",
+    "category": "分类",
+    "suit": "花色",
+    "element": "元素",
+    "astrology": "星相",
+    "numerology": "数字学意义",
+    "interpretation": "牌面解读",
+    "uprightReading": "正位解读",
+    "reversedReading": "逆位解读",
+    "storyBackground": "故事背景",
+    "symbolism": "象征意义",
+    "loveReading": "感情解读",
+    "careerReading": "事业解读",
+    "studyReading": "学业解读",
+    "overallSummary": "整体概括",
+    "relatedCards": "相关塔罗牌",
+    "notFoundDescription": "抱歉，我们无法找到您请求的塔罗牌。",
+    "loadingRelated": "正在寻找相关牌义关联...",
+    "noRelatedCards": "没有找到相关卡牌"
+  },
+  "categories": {
+    "exploreTitle": "探索塔罗牌世界",
+    "majorArcana": {
+      "title": "大阿卡那",
+      "description": "22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。"
+    },
+    "wands": {
+      "title": "权杖牌组",
+      "description": "对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。"
+    },
+    "cups": {
+      "title": "圣杯牌组",
+      "description": "对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。"
+    },
+    "swords": {
+      "title": "宝剑牌组",
+      "description": "对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。"
+    },
+    "pentacles": {
+      "title": "星币牌组",
+      "description": "对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。"
+    },
+    "readings": {
+      "title": "牌阵解读",
+      "description": "不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。"
+    },
+    "exploreAll": "探索完整塔罗牌组"
+  }
+} 

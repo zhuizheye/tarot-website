@@ -15,6 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="/js/i18n.js"></script>
+  <script src="/js/components.js"></script>
   <style>
     .spread-section {
       padding: 40px 0;
@@ -299,19 +301,10 @@
   </style>
 </head>
 <body>
+  <!-- Header Component -->
+  <div id="header-component"></div>
+  
   <div class="app-container">
-    <header>
-      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="/">首页</a></li>
-          <li><a href="/cards-list.html">塔罗牌列表</a></li>
-          <li><a href="/readings.html">牌阵解读</a></li>
-          <li><a href="/about.html">关于我们</a></li>
-        </ul>
-      </nav>
-    </header>
-    
     <main>
       <section class="spread-section">
         <h1>三张牌阵解读</h1>
@@ -391,19 +384,10 @@
         </div>
       </section>
     </main>
-    
-    <footer>
-      <div class="footer-nav">
-        <ul>
-          <li><a href="/">首页</a></li>
-          <li><a href="/cards-list.html">塔罗牌列表</a></li>
-          <li><a href="/readings.html">牌阵解读</a></li>
-          <li><a href="/about.html">关于我们</a></li>
-        </ul>
-      </div>
-      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
-    </footer>
   </div>
+  
+  <!-- Footer Component -->
+  <div id="footer-component"></div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script>

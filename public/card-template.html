@@ -16,48 +16,57 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="/js/i18n.js"></script>
+  <script src="/js/components.js"></script>
+  <style>
+    /* Language selector styles */
+    .language-selector-container {
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .language-selector-container label {
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+    .language-selector {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <!-- Header Component -->
+  <div id="header-component"></div>
+  
   <div class="app-container">
-    <header>
-      <h1><a href="/" title="返回首页"><i class="fas fa-moon"></i> RWS 塔罗牌解说 <i class="fas fa-sun"></i></a></h1>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="/">首页</a></li>
-          <li><a href="/cards-list.html" class="active">塔罗牌列表</a></li>
-          <li><a href="/readings.html">牌阵解读</a></li>
-          <li><a href="/about.html">关于我们</a></li>
-        </ul>
-      </nav>
-    </header>
-    
     <main>
       <article class="card-detail" id="card-container">
         <div class="loading-container" style="text-align: center; padding: 50px 0;">
           <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: #6447b5;"></i>
-          <p>正在加载卡牌信息...</p>
+          <p data-i18n="common.loading">正在加载卡牌信息...</p>
         </div>
       </article>
     </main>
-    
-    <footer>
-      <div class="footer-nav">
-        <ul>
-          <li><a href="/">首页</a></li>
-          <li><a href="/cards-list.html">塔罗牌列表</a></li>
-          <li><a href="/readings.html">牌阵解读</a></li>
-          <li><a href="/about.html">关于我们</a></li>
-        </ul>
-      </div>
-      <p>Rider-Waite-Smith 塔罗牌解说 &copy; <script>document.write(new Date().getFullYear())</script></p>
-    </footer>
   </div>
+  
+  <!-- Footer Component -->
+  <div id="footer-component"></div>
   
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Get card slug from URL
       const pathParts = window.location.pathname.split('/');
-      const cardSlug = pathParts[pathParts.length - 1];
+      let cardSlug = pathParts[pathParts.length - 1];
+      
+      // Check if URL has language code and adjust cardSlug extraction
+      const languageCodes = ['en-US', 'zh-CN', 'en', 'zh'];
+      if (pathParts.length > 2 && languageCodes.some(code => code.startsWith(pathParts[1]))) {
+        cardSlug = pathParts[pathParts.length - 1];
+      }
       
       // Fetch card data
       fetch(`/api/cards/${cardSlug}`)
@@ -78,6 +87,9 @@
           // Update meta tags
           updateMetaTags(data.card);
           
+          // Apply translations to newly rendered content
+          i18n.updatePageLanguage();
+          
           // Fetch related cards
           return fetch(`/api/related_cards/${data.card.id}`);
         })
@@ -85,19 +97,22 @@
         .then(data => {
           if (data.success) {
             renderRelatedCards(data.relatedCards);
+            // Apply translations to related cards
+            i18n.updatePageLanguage();
           }
         })
         .catch(error => {
           console.error('Error:', error);
           document.getElementById('card-container').innerHTML = `
             <div style="text-align: center; padding: 50px 0;">
-              <h2>卡牌未找到</h2>
-              <p>抱歉，我们无法找到您请求的塔罗牌。</p>
-              <a href="/cards-list.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #6447b5; color: white; text-decoration: none; border-radius: 5px;">
+              <h2 data-i18n="common.notFound">卡牌未找到</h2>
+              <p data-i18n="cardDetail.notFoundDescription">抱歉，我们无法找到您请求的塔罗牌。</p>
+              <a href="/cards-list.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #6447b5; color: white; text-decoration: none; border-radius: 5px;" data-i18n="common.viewAllCards">
                 查看所有塔罗牌
               </a>
             </div>
           `;
+          i18n.updatePageLanguage();
         });
     });
     
@@ -112,42 +127,42 @@
       cardContainer.innerHTML = `
         <header class="card-header">
           <h1>${card.name} (${card.english_name})</h1>
-          <div class="card-meta">${card.arcana} | 编号: ${card.rank}</div>
+          <div class="card-meta">${card.arcana} | <span data-i18n="cardDetail.number">编号</span>: ${card.rank}</div>
         </header>
         
         <div class="card-showcase">
-          <div class="card-image">
-            <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name} (${card.english_name})">
+          <div class="card-image" style="display: flex; justify-content: center; align-items: center; width: 100%; text-align: center;">
+            <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name} (${card.english_name})" style="max-height: 400px; width: auto; margin: 0 auto;">
           </div>
           
           <div class="card-basic-info">
-            <h2>基本资料</h2>
+            <h2 data-i18n="cardDetail.basicInfo">基本资料</h2>
             <ul>
-              <li><strong>中文名称:</strong> ${card.name}</li>
-              <li><strong>英文名称:</strong> ${card.english_name}</li>
-              <li><strong>编号:</strong> ${card.rank}</li>
-              <li><strong>分类:</strong> ${card.arcana}</li>
-              ${card.suit ? `<li><strong>花色:</strong> ${card.suit}</li>` : ''}
-              <li><strong>元素:</strong> ${element}</li>
-              <li><strong>星相:</strong> ${astrology}</li>
-              <li><strong>数字学意义:</strong> ${numerology}</li>
+              <li><strong data-i18n="cardDetail.chineseName">中文名称</strong>: ${card.name}</li>
+              <li><strong data-i18n="cardDetail.englishName">英文名称</strong>: ${card.english_name}</li>
+              <li><strong data-i18n="cardDetail.number">编号</strong>: ${card.rank}</li>
+              <li><strong data-i18n="cardDetail.category">分类</strong>: ${card.arcana}</li>
+              ${card.suit ? `<li><strong data-i18n="cardDetail.suit">花色</strong>: ${card.suit}</li>` : ''}
+              <li><strong data-i18n="cardDetail.element">元素</strong>: <span class="translate-value">${element}</span></li>
+              <li><strong data-i18n="cardDetail.astrology">星相</strong>: <span class="translate-value">${astrology}</span></li>
+              <li><strong data-i18n="cardDetail.numerology">数字学意义</strong>: <span class="translate-value">${numerology}</span></li>
             </ul>
           </div>
         </div>
         
         <section class="interpretation-section">
-          <h2>牌面解读</h2>
+          <h2 data-i18n="cardDetail.interpretation">牌面解读</h2>
           
           <div class="interpretation-tabs">
             <div class="tab-header">
-              <h3>正位解读</h3>
+              <h3 data-i18n="cardDetail.uprightReading">正位解读</h3>
             </div>
             <div class="interpretation-content">
               ${renderInterpretation(interpretations.upright)}
             </div>
             
             <div class="tab-header">
-              <h3>逆位解读</h3>
+              <h3 data-i18n="cardDetail.reversedReading">逆位解读</h3>
             </div>
             <div class="interpretation-content">
               ${renderInterpretation(interpretations.reversed)}
@@ -157,7 +172,7 @@
         
         <!-- Add the "Explore Tarot World" section -->
         <section class="main-section explore-section">
-          <h2 class="section-title">探索塔罗牌世界</h2>
+          <h2 class="section-title" data-i18n="categories.exploreTitle">探索塔罗牌世界</h2>
           
           <div class="categories-grid">
             <div class="category-card">
@@ -165,8 +180,8 @@
                 <div class="category-icon">
                   <i class="fas fa-sun"></i>
                 </div>
-                <h3>大阿卡那</h3>
-                <p>22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。</p>
+                <h3 data-i18n="categories.majorArcana.title">大阿卡那</h3>
+                <p data-i18n="categories.majorArcana.description">22张大阿卡那牌代表人生旅程中的重大主题和转折点，象征着灵魂成长的关键阶段。</p>
               </div>
             </div>
             
@@ -175,8 +190,8 @@
                 <div class="category-icon">
                   <i class="fas fa-fire"></i>
                 </div>
-                <h3>权杖牌组</h3>
-                <p>对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。</p>
+                <h3 data-i18n="categories.wands.title">权杖牌组</h3>
+                <p data-i18n="categories.wands.description">对应元素火，代表创造力、热情、行动和精神能量，与职业和个人追求相关。</p>
               </div>
             </div>
             
@@ -185,8 +200,8 @@
                 <div class="category-icon">
                   <i class="fas fa-water"></i>
                 </div>
-                <h3>圣杯牌组</h3>
-                <p>对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。</p>
+                <h3 data-i18n="categories.cups.title">圣杯牌组</h3>
+                <p data-i18n="categories.cups.description">对应元素水，代表情感、关系、爱和直觉，探讨情感体验和人际关系。</p>
               </div>
             </div>
             
@@ -195,8 +210,8 @@
                 <div class="category-icon">
                   <i class="fas fa-wind"></i>
                 </div>
-                <h3>宝剑牌组</h3>
-                <p>对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。</p>
+                <h3 data-i18n="categories.swords.title">宝剑牌组</h3>
+                <p data-i18n="categories.swords.description">对应元素风，代表思想、挑战、冲突和沟通，关注理性思维和决策过程。</p>
               </div>
             </div>
             
@@ -205,8 +220,8 @@
                 <div class="category-icon">
                   <i class="fas fa-mountain"></i>
                 </div>
-                <h3>星币牌组</h3>
-                <p>对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。</p>
+                <h3 data-i18n="categories.pentacles.title">星币牌组</h3>
+                <p data-i18n="categories.pentacles.description">对应元素土，代表物质世界、财富、身体和实际事务，与物质安全相关。</p>
               </div>
             </div>
             
@@ -216,25 +231,25 @@
                   <div class="category-icon">
                     <i class="fas fa-book-open"></i>
                   </div>
-                  <h3>牌阵解读</h3>
-                  <p>不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。</p>
+                  <h3 data-i18n="categories.readings.title">牌阵解读</h3>
+                  <p data-i18n="categories.readings.description">不同的牌阵排列方式可以提供更全面的指引，解读生活中的各种问题和情境。</p>
                 </div>
               </a>
             </div>
           </div>
           
           <div class="view-all" style="text-align: center; margin-top: 30px;">
-            <a href="/cards-list.html" class="explore-all-button">探索完整塔罗牌组 <i class="fas fa-chevron-right"></i></a>
+            <a href="/cards-list.html" class="explore-all-button" data-i18n="categories.exploreAll">探索完整塔罗牌组 <i class="fas fa-chevron-right"></i></a>
           </div>
         </section>
         
         <section class="related-cards">
-          <h2>相关塔罗牌</h2>
+          <h2 data-i18n="cardDetail.relatedCards">相关塔罗牌</h2>
           <ul class="cards-grid" id="related-cards-container">
             <li class="loading-message">
               <div style="text-align: center; padding: 20px;">
                 <i class="fas fa-spinner fa-spin"></i>
-                <p>正在寻找相关牌义关联...</p>
+                <p data-i18n="cardDetail.loadingRelated">正在寻找相关牌义关联...</p>
               </div>
             </li>
           </ul>
@@ -245,32 +260,32 @@
     function renderInterpretation(interpretation) {
       return `
         <div class="interpretation-item">
-          <h4>故事背景</h4>
+          <h4 data-i18n="cardDetail.storyBackground">故事背景</h4>
           <p>${interpretation.story_background}</p>
         </div>
         
         <div class="interpretation-item">
-          <h4>象征意义</h4>
+          <h4 data-i18n="cardDetail.symbolism">象征意义</h4>
           <p>${interpretation.symbolism}</p>
         </div>
         
         <div class="interpretation-item">
-          <h4>感情解读</h4>
+          <h4 data-i18n="cardDetail.loveReading">感情解读</h4>
           <p>${interpretation.love}</p>
         </div>
         
         <div class="interpretation-item">
-          <h4>事业解读</h4>
+          <h4 data-i18n="cardDetail.careerReading">事业解读</h4>
           <p>${interpretation.career}</p>
         </div>
         
         <div class="interpretation-item">
-          <h4>学业解读</h4>
+          <h4 data-i18n="cardDetail.studyReading">学业解读</h4>
           <p>${interpretation.study}</p>
         </div>
         
         <div class="interpretation-item">
-          <h4>整体概括</h4>
+          <h4 data-i18n="cardDetail.overallSummary">整体概括</h4>
           <p>${interpretation.overall}</p>
         </div>
       `;
@@ -280,7 +295,7 @@
       const container = document.getElementById('related-cards-container');
       
       if (!relatedCards || relatedCards.length === 0) {
-        container.innerHTML = '<p class="no-related-cards">没有找到相关卡牌</p>';
+        container.innerHTML = '<p class="no-related-cards" data-i18n="cardDetail.noRelatedCards">没有找到相关卡牌</p>';
         return;
       }
       
@@ -288,11 +303,19 @@
       
       relatedCards.forEach(card => {
         const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+        const currentLang = i18n ? i18n.currentLanguage : 'zh-CN';
+        let cardUrl = `/cards/${cardSlug}`;
+        
+        // Add language prefix if using path-based approach
+        if (currentLang && currentLang !== i18n.defaultLanguage) {
+          const langCode = currentLang.split('-')[0];
+          cardUrl = `/${langCode}${cardUrl}`;
+        }
         
         html += `
           <li>
             <div class="card-thumbnail">
-              <a href="/cards/${cardSlug}" title="${card.name} - ${card.english_name}">
+              <a href="${cardUrl}" title="${card.name} - ${card.english_name}">
                 <img src="/images/tarot/optimized/${card.image_filename}" alt="${card.name}">
                 <h3>${card.name}<span class="card-english-name">${card.english_name}</span></h3>
               </a>
@@ -318,37 +341,68 @@
     }
     
     function updateMetaTags(card) {
+      // Get current language code
+      const currentLang = i18n ? i18n.currentLanguage : 'zh-CN';
+      
+      // Use translations if available
+      const titlePrefix = currentLang === 'zh-CN' ? '塔罗牌详解' : 'Tarot Card Details';
+      const titleSuffix = currentLang === 'zh-CN' ? 'RWS 塔罗牌解说' : 'RWS Tarot Guide';
+      
       // Update page title
-      document.title = `${card.name} (${card.english_name}) 塔罗牌详解 | RWS 塔罗牌解说`;
+      document.title = `${card.name} (${card.english_name}) ${titlePrefix} | ${titleSuffix}`;
+      
+      // Create description based on language
+      let metaDescContent;
+      if (currentLang === 'zh-CN') {
+        metaDescContent = `${card.name}是${card.arcana}牌组中的一张，象征着[特性]。探索${card.name}牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。`;
+      } else {
+        metaDescContent = `${card.english_name} is a card in the ${card.arcana} group, symbolizing [characteristics]. Explore the symbolism, upright and reversed interpretations of the ${card.english_name} card in love, career, and study.`;
+      }
       
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
-        metaDescription.content = `${card.name}是${card.arcana}牌组中的一张，象征着[特性]。探索${card.name}牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。`;
+        metaDescription.content = metaDescContent;
       }
       
-      // Update canonical link
+      // Update canonical link with language path if needed
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
         const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
-        canonical.href = `/cards/${cardSlug}`;
+        let canonicalUrl = `/cards/${cardSlug}`;
+        
+        // Add language prefix if not default
+        if (currentLang !== i18n.defaultLanguage) {
+          const langCode = currentLang.split('-')[0];
+          canonicalUrl = `/${langCode}${canonicalUrl}`;
+        }
+        
+        canonical.href = canonicalUrl;
       }
       
       // Update OpenGraph tags
       const ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) {
-        ogTitle.content = `${card.name} (${card.english_name}) 塔罗牌详解 | RWS 塔罗牌解说`;
+        ogTitle.content = `${card.name} (${card.english_name}) ${titlePrefix} | ${titleSuffix}`;
       }
       
       const ogDescription = document.querySelector('meta[property="og:description"]');
       if (ogDescription) {
-        ogDescription.content = `${card.name}是${card.arcana}牌组中的一张，象征着[特性]。探索${card.name}牌的象征意义、正逆位解读及在感情、事业、学业方面的指引。`;
+        ogDescription.content = metaDescContent;
       }
       
       const ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) {
         const cardSlug = card.english_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
-        ogUrl.content = `/cards/${cardSlug}`;
+        let ogUrlContent = `/cards/${cardSlug}`;
+        
+        // Add language prefix if not default
+        if (currentLang !== i18n.defaultLanguage) {
+          const langCode = currentLang.split('-')[0];
+          ogUrlContent = `/${langCode}${ogUrlContent}`;
+        }
+        
+        ogUrl.content = ogUrlContent;
       }
       
       const ogImage = document.querySelector('meta[property="og:image"]');
